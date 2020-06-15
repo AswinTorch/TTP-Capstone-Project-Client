@@ -2,6 +2,8 @@ import React from "react";
 import firebase from "../../firebase";
 import "../App/App.css";
 
+import EnrolledCoursesView from "../Enrollment/EnrolledCoursesView";
+
 const DashboardView = (props) => {
   return (
     <div className="container-fluid p-3">
@@ -49,12 +51,7 @@ const DashboardView = (props) => {
         </div>
       </div>
 
-      <div className="card mt-4 shadow border-0">
-        <h5 className="card-header text-primary">Your Courses</h5>
-        <div className="card-body">
-          You are not enrolled in any courses at this time.
-        </div>
-      </div>
+      <EnrolledCoursesView />
 
       <div className="card mt-4 shadow border-0">
         <h5 className="card-header text-info">Assignments</h5>
