@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
 import firebase from "../../firebase";
-import DashboardContainer from "../Dashboard/DashboardContainer";
 import LoginView from "../Login/LoginView";
 import NavbarView from "../Navbar/NavbarView";
 import RoutesContainer from "../Routes/RoutesContainer";
+import SideMenuContainer from "../SideMenu/SideMenuContainer";
 
 class App extends Component {
   state = {
@@ -41,6 +41,7 @@ class App extends Component {
               displayName={firebase.auth().currentUser.displayName}
               photoURL={firebase.auth().currentUser.photoURL}
             />
+            <SideMenuContainer />
             <RoutesContainer />
           </>
         ) : (
