@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import "./App.css";
 import firebase from "../../firebase";
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import DashboardContainer from "../Dashboard/DashboardContainer";
+import LoginView from "../Login/LoginView";
 
 class App extends Component {
   state = {
-    user: {},
     isSignedIn: false,
   };
+
   uiConfig = {
     signInFlow: "popup",
     signInOptions: [
@@ -26,11 +27,6 @@ class App extends Component {
   authListener() {
     firebase.auth().onAuthStateChanged((user) => {
       this.setState({ isSignedIn: !!user });
-      if (user) {
-        this.setState({ user });
-      } else {
-        this.setState({ user: null });
-      }
     });
   }
 
@@ -38,12 +34,9 @@ class App extends Component {
     return (
       <div className="">
         {this.state.isSignedIn ? (
-          <h1>Signed In</h1>
+          <DashboardContainer />
         ) : (
-          <StyledFirebaseAuth
-            uiConfig={this.uiConfig}
-            firebaseAuth={firebase.auth()}
-          />
+          <LoginView uiConfig={this.uiConfig} />
         )}
       </div>
     );
