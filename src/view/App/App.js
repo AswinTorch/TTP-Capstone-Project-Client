@@ -3,6 +3,7 @@ import "./App.css";
 import firebase from "../../firebase";
 import DashboardContainer from "../Dashboard/DashboardContainer";
 import LoginView from "../Login/LoginView";
+import NavbarView from "../Navbar/NavbarView";
 
 class App extends Component {
   state = {
@@ -34,9 +35,18 @@ class App extends Component {
     return (
       <div className="">
         {this.state.isSignedIn ? (
-          <DashboardContainer />
+          <>
+            <NavbarView
+              displayName={firebase.auth().currentUser.displayName}
+              photoURL={firebase.auth().currentUser.photoURL}
+            />
+            <DashboardContainer />{" "}
+          </>
         ) : (
-          <LoginView uiConfig={this.uiConfig} />
+          <>
+            <NavbarView />
+            <LoginView uiConfig={this.uiConfig} />
+          </>
         )}
       </div>
     );
