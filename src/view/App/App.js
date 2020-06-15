@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import firebase from "../../firebase";
-import DashboardContainer from "../Dashboard/DashboardContainer";
 import LoginView from "../Login/LoginView";
 import NavbarView from "../Navbar/NavbarView";
 import RoutesContainer from "../Routes/RoutesContainer";
