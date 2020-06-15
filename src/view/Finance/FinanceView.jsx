@@ -1,10 +1,20 @@
 import React from "react";
 
+import MoneyReceivedView from "./MoneyReceivedView";
+import MoneyOwedView from "./MoneyOwedView";
+
 const FinanceView = (props) =>
 {
     return (
-        <div>
-            <h1>Finance View</h1>
+        <div className="container-fluid p-3">
+            <div>
+                <h1>Finances</h1>
+            </div>
+
+            <div className="row">
+                <MoneyReceivedView />
+                <MoneyOwedView />
+            </div>
         </div>
     );
 }
