@@ -1,13 +1,13 @@
 import firebase from "firebase";
 
 const config = {
-  apiKey: "AIzaSyADzWxNJ68920R3i216Q2_er3KmJjVLLGg",
-  authDomain: "ttp-capstone-project.firebaseapp.com",
-  databaseURL: "https://ttp-capstone-project.firebaseio.com",
-  projectId: "ttp-capstone-project",
-  storageBucket: "ttp-capstone-project.appspot.com",
-  messagingSenderId: "102039581",
-  appId: "1:102039581:web:421cec645b5821515946f4",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
 firebase.initializeApp(config);
