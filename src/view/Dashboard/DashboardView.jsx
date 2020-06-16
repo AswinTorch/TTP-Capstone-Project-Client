@@ -8,8 +8,8 @@ import MoneyOwedView from "../Finance/MoneyOwedView";
 
 const DashboardView = (props) => {
   return (
-    <div className="container-fluid p-4">
-      <div class="d-flex justify-content-between pb-3">
+    <div className="container-fluid pt-3 pl-4 pr-4 pb-4">
+      <div className="d-flex justify-content-between pb-3">
         <div>
           <h1 className="">Dashboard</h1>
         </div>
