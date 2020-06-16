@@ -2,7 +2,7 @@ import React from "react";
 
 const NavbarView = (props) => {
   return (
-    <nav className="navbar navbar-light bg-light">
+    <nav className="navbar navbar-light bg-light shadow">
       <div className="div"></div>
       <div className="form-inline">
         <span className="mr-3">{props.displayName}</span>
