@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const SideMenuView = (props) => {
   return (
-    <div className="container-fluid col-2 bg-dark" style={{ height: "100vh" }}>
+    <div className="container-fluid col-2 bg-dark" style={{ height: "auto" }}>
       <nav className="navbar navbar-dark bg-dark">
         <span className="navbar-brand mb-0 h1 text-white">
           STUDENT<span style={{ color: "orange" }}>First</span>
