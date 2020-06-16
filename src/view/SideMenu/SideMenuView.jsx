@@ -13,7 +13,7 @@ const SideMenuView = (props) => {
             <Link to="/dashboard" className="nav-link">
               <div className="row">
                 <div className="col-2">
-                  <i class="fa fa-tachometer"></i>
+                  <i className="fa fa-tachometer"></i>
                 </div>
                 <div className="col">
                   <span className="d-none d-md-block"> Dashboard</span>
@@ -25,7 +25,7 @@ const SideMenuView = (props) => {
             <Link to="/enrollment" className="nav-link">
               <div className="row">
                 <div className="col-2">
-                  <i class="fa fa-graduation-cap "></i>
+                  <i className="fa fa-graduation-cap "></i>
                 </div>
                 <div className="col">
                   <span className="d-none d-md-block"> Enrollment</span>
@@ -37,7 +37,7 @@ const SideMenuView = (props) => {
             <Link to="/finances" className="nav-link">
               <div className="row">
                 <div className="col-2">
-                  <i class="fa fa-credit-card-alt"></i>
+                  <i className="fa fa-credit-card-alt"></i>
                 </div>
                 <div className="col">
                   <span className="d-none d-md-block"> Finance</span>

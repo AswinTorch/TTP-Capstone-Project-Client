@@ -18,7 +18,7 @@ class App extends Component {
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     ],
     callbacks: {
-      signInSuccess: () => false,
+      signInSuccessWithAuthResult: () => false,
     },
   };
 
@@ -34,7 +34,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="">
+      <div className="" style={{ backgroundColor: "#F8F9FC" }}>
         {this.state.isSignedIn ? (
           <>
             <div className="row">
@@ -50,7 +50,6 @@ class App extends Component {
           </>
         ) : (
           <>
-            <NavbarView />
             <LoginView uiConfig={this.uiConfig} />
           </>
         )}
