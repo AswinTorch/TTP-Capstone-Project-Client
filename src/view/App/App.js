@@ -34,7 +34,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="">
+      <div className="" style={{ backgroundColor: "#F8F9FC" }}>
         {this.state.isSignedIn ? (
           <>
             <div className="row">

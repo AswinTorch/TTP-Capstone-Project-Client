@@ -7,7 +7,9 @@ const MoneyReceivedView = (props) => {
         <div className="card-body">
           <div className="row no-gutters align-items-center">
             <div className="col mr-2">
-              <h5 className="card-title text-success">Money Received</h5>
+              <div className="text-xs font-weight-bold text-success text-uppercase mb-1">
+                Money Received
+              </div>
               <h6 className="card-subtitle mt-3">$420.69</h6>
             </div>
             <div className="col-auto">
