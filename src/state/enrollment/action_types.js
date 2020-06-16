@@ -1,7 +1,8 @@
 // Action types for enrollment
 const FETCH_REGISTERED_COURSES = "FETCH_REGISTERED_COURSES";
+const FETCH_ALL_COURSES = "FETCH_ALL_COURSES";
 
-export default
-{
-    FETCH_REGISTERED_COURSES,
-}
+export default {
+  FETCH_REGISTERED_COURSES,
+  FETCH_ALL_COURSES,
+};

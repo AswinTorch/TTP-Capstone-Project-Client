@@ -11,6 +11,7 @@ class App extends Component {
     isSignedIn: false,
   };
 
+  // Firebase auth config object
   uiConfig = {
     signInFlow: "popup",
     signInOptions: [
@@ -22,10 +23,12 @@ class App extends Component {
     },
   };
 
+  // Function called on first render
   componentDidMount() {
     this.authListener();
   }
 
+  // Function to check firebase authentication state -> sets local state of isSignedIn
   authListener() {
     firebase.auth().onAuthStateChanged((user) => {
       this.setState({ isSignedIn: !!user });
