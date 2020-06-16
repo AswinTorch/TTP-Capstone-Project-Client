@@ -37,12 +37,16 @@ class App extends Component {
       <div className="">
         {this.state.isSignedIn ? (
           <>
-            <NavbarView
-              displayName={firebase.auth().currentUser.displayName}
-              photoURL={firebase.auth().currentUser.photoURL}
-            />
-            <SideMenuContainer />
-            <RoutesContainer />
+            <div className="row">
+              <SideMenuContainer />
+              <div className="container-fluid col-10 pl-0">
+                <NavbarView
+                  displayName={firebase.auth().currentUser.displayName}
+                  photoURL={firebase.auth().currentUser.photoURL}
+                />
+                <RoutesContainer />
+              </div>
+            </div>
           </>
         ) : (
           <>

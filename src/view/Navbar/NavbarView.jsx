@@ -2,11 +2,9 @@ import React from "react";
 
 const NavbarView = (props) => {
   return (
-    <nav className="navbar navbar-light bg-dark">
-      <span className="navbar-brand mb-0 h1 text-white">
-        STUDENT<span style={{ color: "orange" }}>First</span>
-      </span>
-      <div className="form-inline text-white">
+    <nav className="navbar navbar-light bg-light">
+      <div className="div"></div>
+      <div className="form-inline">
         <span className="mr-3">{props.displayName}</span>
         <img
           src={props.photoURL}
