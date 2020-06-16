@@ -4,24 +4,45 @@ import { Link } from "react-router-dom";
 const SideMenuView = (props) => {
   return (
     <div className="container-fluid col-2 bg-dark" style={{ height: "auto" }}>
-      <nav className="navbar navbar-dark bg-dark">
-        <span className="navbar-brand mb-0 h1 text-white">
-          STUDENT<span style={{ color: "orange" }}>First</span>
-        </span>
+      <nav className="navbar navbar-dark bg-dark d-flex flex-column align-content-start">
+        <div className="navbar-brand mb-0 h1 text-white">
+          S<span style={{ color: "orange" }}>F</span>
+        </div>
         <ul className="navbar-nav">
-          <li className="nav-item">
+          <li className="nav-item my-2">
             <Link to="/dashboard" className="nav-link">
-              Dashboard
+              <div className="row">
+                <div className="col-2">
+                  <i class="fa fa-tachometer"></i>
+                </div>
+                <div className="col">
+                  <span className="d-none d-md-block"> Dashboard</span>
+                </div>
+              </div>
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item my-2">
             <Link to="/enrollment" className="nav-link">
-              Enrollment
+              <div className="row">
+                <div className="col-2">
+                  <i class="fa fa-graduation-cap "></i>
+                </div>
+                <div className="col">
+                  <span className="d-none d-md-block"> Enrollment</span>
+                </div>
+              </div>
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item my-2">
             <Link to="/finances" className="nav-link">
-              Finances
+              <div className="row">
+                <div className="col-2">
+                  <i class="fa fa-credit-card-alt"></i>
+                </div>
+                <div className="col">
+                  <span className="d-none d-md-block"> Finance</span>
+                </div>
+              </div>
             </Link>
           </li>
         </ul>
