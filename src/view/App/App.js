@@ -50,7 +50,6 @@ class App extends Component {
           </>
         ) : (
           <>
-            <NavbarView />
             <LoginView uiConfig={this.uiConfig} />
           </>
         )}
