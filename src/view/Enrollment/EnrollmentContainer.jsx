@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import EnrollmentView from "./EnrollmentView";
-import { fetchRegisteredCoursesThunk } from "../../state/enrollment/thunks";
 
 // Smart container for enrollment
 class EnrollmentContainer extends Component {
@@ -18,10 +17,7 @@ const mapState = (state) => {
 
 // Map dispatch to props
 const mapDispatch = (dispatch) => {
-  return {
-    fetchRegisteredCourses: (studentId) =>
-      dispatch(fetchRegisteredCoursesThunk(studentId)),
-  };
+  return {};
 };
 
 // Export our store-connected container by default

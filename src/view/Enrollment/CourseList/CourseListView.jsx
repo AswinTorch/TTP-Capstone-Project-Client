@@ -2,6 +2,13 @@ import React from "react";
 
 import "bootstrap/js/src/collapse";
 
+/**
+ * Represents the entire view of the Course List.
+ * This component controls the type of display to use
+ * 
+ * Receives props (fetched data) from CourseListContainer
+ * Passes props (fetched data) down to CourseListItem to generate
+ */
 const CourseListView = (props) => {
   return (
     <div className="card card-block mt-4 shadow border-0">
