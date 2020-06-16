@@ -2,6 +2,13 @@ import React from "react";
 
 import "bootstrap/js/src/modal";
 
+/**
+ * Represents the entire view of the user's Enrolled Courses
+ * This component controls the type of display to use
+ * 
+ * Receives props (fetched data) from EnrolledCoursesContainer
+ * Passes props (fetched data) down to EnrolledCourseItem to generate
+ */
 const EnrolledCoursesView = (props) => {
   return (
     <div className="card mt-4 shadow border-0">

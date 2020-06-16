@@ -1,7 +1,7 @@
 import React from "react";
 
-import EnrolledCoursesView from "./EnrolledCoursesView";
-import CourseListView from "./CourseListView";
+import EnrolledCoursesContainer from "./EnrolledCourses/EnrolledCoursesContainer";
+import CourseListContainer from "./CourseList/CourseListContainer";
 
 const EnrollmentView = (props) => 
 {
@@ -11,8 +11,8 @@ const EnrollmentView = (props) =>
                 <h1>Enrollment</h1>
             </div>
 
-                <EnrolledCoursesView />
-                <CourseListView />
+                <EnrolledCoursesContainer />
+                <CourseListContainer />
         </div>
     );
 }
