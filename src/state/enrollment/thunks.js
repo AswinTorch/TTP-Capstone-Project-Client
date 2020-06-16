@@ -13,8 +13,10 @@ export const fetchRegisteredCoursesThunk = (studentId) => (dispatch) => {
 
 export const fetchAllCoursesThunk = () => (dispatch) => {
   return axios
-    .get("/api/courses")
-    .then((res) => res.data)
-    .then((courses) => dispatch(fetchAllCourses(courses)))
+    .get("/api/courses/?limit=10")
+    .then((res) => res.data.data)
+    .then((courses) => {
+      dispatch(fetchAllCourses(courses));
+    })
     .catch((err) => console.error(err));
 };
