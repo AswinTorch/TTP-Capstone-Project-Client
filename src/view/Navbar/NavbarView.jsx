@@ -1,9 +1,18 @@
 import React, { useState } from "react";
-import Dropdown from "react-bootstrap/Dropdown";
-import firebase from "../../firebase";
+import NotificationsToggleMenu from "./NotificationsToggleMenu";
+import UserToggleMenu from "./UserToggleMenu";
+
+/**
+ * Represents the entire navbar view
+ * This component controls the type of display to use
+ *
+ * Receives props from App.js
+ * Passes props (user info, etc) down to NotificationsToggleMenu and UserToggleMenu
+ */
 
 const NavbarView = (props) => {
-  const [value, setValue] = useState("");
+  // Lines 15-65 are boilterplate necessary code to setup responsive react-bootstrap components
+  const [value] = useState("");
   const NotificationsToggle = React.forwardRef(({ children, onClick }, ref) => (
     <a
       href="/#"
@@ -18,7 +27,7 @@ const NavbarView = (props) => {
     </a>
   ));
 
-  const ProfileToggle = React.forwardRef(({ children, onClick }, ref) => (
+  const UserToggle = React.forwardRef(({ children, onClick }, ref) => (
     <a
       href="/#"
       className="text-muted"
@@ -60,99 +69,19 @@ const NavbarView = (props) => {
       <div className="div"></div>
 
       <div className="form-inline">
-        <Dropdown>
-          <Dropdown.Toggle
-            as={NotificationsToggle}
-            id="dropdown-custom-components"
-          >
-            <i class="fas fa-bell"></i>
-          </Dropdown.Toggle>
+        {/* Notifications Toggle View */}
+        <NotificationsToggleMenu
+          toggleType={NotificationsToggle}
+          menuType={CustomMenu}
+        />
+        <span className="text-muted mr-3 ml-4">{props.displayName}</span>
 
-          <Dropdown.Menu as={CustomMenu}>
-            <Dropdown.Header>
-              <strong>Announcements</strong>
-            </Dropdown.Header>
-            <Dropdown.Item eventKey="1">
-              <a class="dropdown-item d-flex align-items-center" href="/#">
-                <div class="mr-3">
-                  <div
-                    class=" bg-primary rounded-circle d-flex align-items-center justify-content-center"
-                    style={{ width: 40, height: 40 }}
-                  >
-                    <i class="fas fa-file-alt text-white"></i>
-                  </div>
-                </div>
-                <div>
-                  <div class="small text-muted">Today</div>
-                  <span class="font-weight-bold">
-                    Registration for graduation coming up!
-                  </span>
-                </div>
-              </a>
-            </Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item eventKey="2">
-              <a class="dropdown-item d-flex align-items-center" href="/#">
-                <div class="mr-3">
-                  <div
-                    class=" bg-primary rounded-circle d-flex align-items-center justify-content-center"
-                    style={{ width: 40, height: 40 }}
-                  >
-                    <i class="fas fa-file-alt text-white"></i>
-                  </div>
-                </div>
-                <div>
-                  <div class="small text-muted">Today</div>
-                  <span class="font-weight-bold">
-                    Tuition is due immediately.
-                  </span>
-                </div>
-              </a>
-            </Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item eventKey="3">
-              <a class="dropdown-item d-flex align-items-center" href="/#">
-                <div class="mr-3">
-                  <div
-                    class=" bg-primary rounded-circle d-flex align-items-center justify-content-center"
-                    style={{ width: 40, height: 40 }}
-                  >
-                    <i class="fas fa-file-alt text-white"></i>
-                  </div>
-                </div>
-                <div>
-                  <div class="small text-muted">Yesterday</div>
-                  <span class="font-weight-bold">
-                    Breaking news: college is a scam.
-                  </span>
-                </div>
-              </a>
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-
-        <span className="mr-3 ml-4">{props.displayName}</span>
-        <Dropdown>
-          <Dropdown.Toggle as={ProfileToggle} id="dropdown-custom-components">
-            <img
-              src={props.photoURL}
-              alt=""
-              className="rounded-circle mr-2"
-              style={{ height: 40, width: 40 }}
-            />
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu as={CustomMenu}>
-            <Dropdown.Item
-              eventKey="1"
-              className="text-muted"
-              onClick={() => firebase.auth().signOut()}
-            >
-              <i class="fas fa-sign-out-alt mr-3"></i>
-              <span class="font-weight-bold">Logout</span>
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+        {/* User Toggle View */}
+        <UserToggleMenu
+          toggleType={UserToggle}
+          menuType={CustomMenu}
+          photoURL={props.photoURL}
+        />
       </div>
     </nav>
   );
