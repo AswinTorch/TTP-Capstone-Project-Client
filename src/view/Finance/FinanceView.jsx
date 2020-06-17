@@ -7,7 +7,7 @@ const FinanceView = (props) => {
   return (
     <div className="container-fluid pt-3 pl-4 pr-4 pb-4">
       <div>
-        <h1>Finances</h1>
+        <h2 className="text-muted">Finance</h2>
       </div>
 
       <div className="row pt-3">

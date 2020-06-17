@@ -9,7 +9,7 @@ const DashboardView = (props) => {
     <div className="container-fluid pt-3 pl-4 pr-4 pb-4">
       <div className="d-flex justify-content-between pb-3">
         <div>
-          <h1 className="">Dashboard</h1>
+          <h2 className="text-muted">Dashboard</h2>
         </div>
         <div>
           <button className="btn btn-primary text-right mt-2">
