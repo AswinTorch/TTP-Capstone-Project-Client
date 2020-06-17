@@ -1,7 +1,5 @@
 import React from "react";
-import firebase from "../../firebase";
 import "../App/App.css";
-
 import EnrolledCoursesContainer from "../Enrollment/EnrolledCourses/EnrolledCoursesContainer";
 import MoneyReceivedView from "../Finance/MoneyReceivedView";
 import MoneyOwedView from "../Finance/MoneyOwedView";
@@ -33,13 +31,6 @@ const DashboardView = (props) => {
           You do not have any assignments for today.
         </div>
       </div>
-
-      <button
-        onClick={() => firebase.auth().signOut()}
-        className="btn btn-dark mt-4"
-      >
-        Sign Out
-      </button>
     </div>
   );
 };
