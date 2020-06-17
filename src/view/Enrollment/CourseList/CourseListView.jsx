@@ -16,7 +16,7 @@ const CourseListView = ({ courses }) => {
       <h5 className="card-header text-info">Course List</h5>
       <div className="card-body">
         <Accordion>
-          {courses ? (
+          {courses.length !== 0 ? (
             // Shows fetched data if it exists
             courses.map((course, index) => (
               <CourseListItem key={course.id} course={course} index={index} />
@@ -24,14 +24,9 @@ const CourseListView = ({ courses }) => {
           ) : (
             // Spinner shows if data isn't fetched or doesn't exist
             <div className="text-center">
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
+              <Spinner animation="grow" variant="secondary" className="mr-2" />
+              <Spinner animation="grow" variant="secondary" className="mr-2" />
+              <Spinner animation="grow" variant="secondary" className="" />
             </div>
           )}
         </Accordion>

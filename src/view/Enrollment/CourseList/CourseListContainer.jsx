@@ -33,7 +33,10 @@ const mapState = (state) => {
 // Map dispatch to props
 const mapDispatch = (dispatch) => {
   return {
-    fetchCourses: () => dispatch(fetchAllCoursesThunk()),
+    // Uncommment this and remove other function when courses list is needed;
+    // Doing this to avoid overuse of firebase calls
+    // fetchCourses: () => dispatch(fetchAllCoursesThunk()),
+    fetchCourses: () => console.log("Temp"),
   };
 };
 
