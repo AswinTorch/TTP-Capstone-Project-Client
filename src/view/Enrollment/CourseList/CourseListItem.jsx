@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
@@ -10,6 +10,22 @@ import Button from "react-bootstrap/Button";
  * Receives props (fetched data) from CourseListView and renders it
  */
 const CourseListItem = ({ course, index }) => {
+  function simulateNetworkRequest() {
+    return new Promise((resolve) => setTimeout(resolve, 2000));
+  }
+
+  const [isLoading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (isLoading) {
+      simulateNetworkRequest().then(() => {
+        setLoading(false);
+      });
+    }
+  }, [isLoading]);
+
+  const handleClick = () => setLoading(true);
+
   return (
     <Card>
       <Accordion.Toggle as={Card.Body} variant="link" eventKey={index}>
@@ -30,7 +46,13 @@ const CourseListItem = ({ course, index }) => {
       <Accordion.Collapse eventKey={index}>
         <Card.Body className="border border-bottom-0 border-left-0 border-right-0">
           <p>{course.description}</p>
-          <Button variant="outline-success">Enroll</Button>
+          <Button
+            variant="outline-success"
+            disabled={isLoading}
+            onClick={!isLoading ? handleClick : null}
+          >
+            {isLoading ? "Enrolling..." : "Enroll"}
+          </Button>
         </Card.Body>
       </Accordion.Collapse>
     </Card>
