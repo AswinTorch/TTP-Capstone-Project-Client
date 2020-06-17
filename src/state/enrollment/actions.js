@@ -14,3 +14,10 @@ export const fetchAllCourses = (courses) => {
     payload: courses,
   };
 };
+
+export const fetchStudent = (student) => {
+  return {
+    type: types.FETCH_STUDENT,
+    payload: student,
+  };
+};

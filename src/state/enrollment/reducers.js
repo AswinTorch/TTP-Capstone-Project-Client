@@ -2,7 +2,7 @@ import types from "./action_types";
 
 // Reducer for enrollment
 const initialState = {
-  enrolledCourses: {},
+  student: {},
   allCourses: [],
 };
 
@@ -12,6 +12,8 @@ const reducer = (state = initialState, action) => {
       return action.payload;
     case types.FETCH_ALL_COURSES:
       return { ...state, allCourses: action.payload };
+    case types.FETCH_STUDENT:
+      return { ...state, student: action.payload };
     default:
       return state;
   }
