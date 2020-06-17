@@ -2,6 +2,8 @@ import axios from "axios";
 
 import { fetchRegisteredCourses, fetchAllCourses } from "./actions";
 
+// ms: you could do try catch and async await here for es6 conventions
+
 // Thunk creators for enrollment
 export const fetchRegisteredCoursesThunk = (studentId) => (dispatch) => {
   return axios
