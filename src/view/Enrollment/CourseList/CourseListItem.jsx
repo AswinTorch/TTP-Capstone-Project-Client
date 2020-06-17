@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 /**
  * Represents a single list item in CourseListView
@@ -9,12 +10,30 @@ import Card from "react-bootstrap/Card";
  * Receives props (fetched data) from CourseListView and renders it
  */
 const CourseListItem = ({ course, index }) => {
+  function simulateNetworkRequest() {
+    return new Promise((resolve) => setTimeout(resolve, 2000));
+  }
+
+  const [isLoading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (isLoading) {
+      simulateNetworkRequest().then(() => {
+        setLoading(false);
+      });
+    }
+  }, [isLoading]);
+
+  const handleClick = () => setLoading(true);
+
   return (
     <Card>
       <Accordion.Toggle as={Card.Body} variant="link" eventKey={index}>
         <div className="d-flex justify-content-between align-items-center">
-          {course.course_identifier} {course.course_number}:{" "}
-          {course.course_name}
+          <span className="">
+            {course.course_identifier} {course.course_number}:{" "}
+            {course.course_name}
+          </span>
           <span
             className="badge badge-success d-flex align-items-center"
             style={{ maxHeight: 20 }}
@@ -25,7 +44,16 @@ const CourseListItem = ({ course, index }) => {
       </Accordion.Toggle>
 
       <Accordion.Collapse eventKey={index}>
-        <Card.Body>{course.description}</Card.Body>
+        <Card.Body className="border border-bottom-0 border-left-0 border-right-0">
+          <p>{course.description}</p>
+          <Button
+            variant="outline-success"
+            disabled={isLoading}
+            onClick={!isLoading ? handleClick : null}
+          >
+            {isLoading ? "Enrolling..." : "Enroll"}
+          </Button>
+        </Card.Body>
       </Accordion.Collapse>
     </Card>
   );
