@@ -6,7 +6,8 @@ const SideMenuView = (props) => {
     <div className="container-fluid col-2 bg-dark" style={{ height: "auto" }}>
       <nav className="navbar navbar-dark bg-dark d-flex flex-column align-content-start">
         <div className="navbar-brand mb-0 h1 text-white">
-          S<span style={{ color: "orange" }}>F</span>
+          <i class="fas fa-university mr-1"></i>S
+          <span style={{ color: "orange" }}>F</span>
         </div>
         <ul className="navbar-nav">
           <li className="nav-item my-2">
