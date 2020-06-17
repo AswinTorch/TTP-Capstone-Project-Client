@@ -15,9 +15,10 @@ const CourseListView = ({ courses }) => {
       <h5 className="card-header text-info">Course List</h5>
       <div className="card-body">
         <Accordion>
-          {courses.map((course, index) => (
-            <CourseListItem key={course.id} course={course} index={index} />
-          ))}
+          {courses &&
+            courses.map((course, index) => (
+              <CourseListItem key={course.id} course={course} index={index} />
+            ))}
         </Accordion>
       </div>
     </div>
