@@ -1,7 +1,7 @@
 import React from "react";
-
 import "bootstrap/js/src/modal";
 import EnrolledCourseItem from "./EnrolledCourseItem";
+import Spinner from "react-bootstrap/Spinner";
 
 /**
  * Represents the entire view of the user's Enrolled Courses
@@ -11,13 +11,37 @@ import EnrolledCourseItem from "./EnrolledCourseItem";
  * Passes props (fetched data) down to EnrolledCourseItem to generate
  */
 const EnrolledCoursesView = (props) => {
+  const courses = props.student.enrolled_courses;
+  console.log(courses);
+
   return (
     <div className="card mt-4 shadow border-0">
       <h5 className="card-header text-primary">Your Courses</h5>
       <div className="card-body">
         <ul className="list-group">
           <div>
-            <EnrolledCourseItem />
+            {0 !== 0 ? (
+              // Shows fetched data if it exists
+
+              {
+                /* courses.map((course) => <EnrolledCourseItem course={course} />) */
+              }
+            ) : (
+              // Spinner shows if data isn't fetched or doesn't exist
+              <div className="text-center">
+                <Spinner
+                  animation="grow"
+                  variant="secondary"
+                  className="mr-2"
+                />
+                <Spinner
+                  animation="grow"
+                  variant="secondary"
+                  className="mr-2"
+                />
+                <Spinner animation="grow" variant="secondary" className="" />
+              </div>
+            )}
           </div>
         </ul>
       </div>

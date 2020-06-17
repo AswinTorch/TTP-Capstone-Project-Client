@@ -1,9 +1,9 @@
 import types from "./action_types";
 
 // Action creators for enrollment
-export function fetchRegisteredCourses(courses) {
+export function fetchEnrolledCourses(courses) {
   return {
-    type: types.FETCH_REGISTERED_COURSES,
+    type: types.FETCH_ENROLLED_COURSES,
     payload: courses,
   };
 }
