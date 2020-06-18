@@ -3,8 +3,10 @@ import { connect } from "react-redux";
 import {
   fetchAllCoursesThunk,
   addCourseThunk,
+  fetchStudentThunk,
 } from "../../../state/enrollment/thunks";
 import CourseListView from "./CourseListView";
+import firebase from "../../../firebase";
 
 /**
  * Smart container for course list component
@@ -15,8 +17,11 @@ import CourseListView from "./CourseListView";
 
 class CourseListContainer extends Component {
   // Fetches data from the server on first render of component
-  componentDidMount() {
+  async componentDidMount() {
     this.props.fetchCourses();
+
+    const id = firebase.auth().currentUser.uid;
+    await this.props.fetchStudent(id);
   }
 
   render() {
@@ -24,6 +29,7 @@ class CourseListContainer extends Component {
       <CourseListView
         courses={this.props.courses}
         addCourse={this.props.addCourse}
+        enrolledCourses={this.props.student.enrolled_courses}
       />
     );
   }
@@ -32,9 +38,11 @@ class CourseListContainer extends Component {
 // Map state to props
 const mapState = (state) => {
   let courses = state.enrollment.allCourses;
+  let student = state.enrollment.student;
 
   return {
     courses,
+    student,
   };
 };
 
@@ -45,7 +53,7 @@ const mapDispatch = (dispatch) => {
     // Doing this to avoid overuse of firebase calls
     fetchCourses: () => dispatch(fetchAllCoursesThunk()),
     // fetchCourses: () => console.log("Temp"),
-
+    fetchStudent: (id) => dispatch(fetchStudentThunk(id)),
     addCourse: (id, course) => dispatch(addCourseThunk(id, course)),
   };
 };

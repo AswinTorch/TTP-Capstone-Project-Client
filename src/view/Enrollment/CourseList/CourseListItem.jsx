@@ -3,6 +3,7 @@ import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import firebase from "../../../firebase";
+import _ from "lodash";
 
 /**
  * Represents a single list item in CourseListView
@@ -10,30 +11,37 @@ import firebase from "../../../firebase";
  *
  * Receives props (fetched data) from CourseListView and renders it
  */
-const CourseListItem = ({ course, index, addCourse }) => {
+const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
   const [isLoading, setLoading] = useState(false);
+  const [isEnrolled, setIsEnrolled] = useState(false);
 
   // function simulateNetworkRequest() {
   //   return new Promise((resolve) => setTimeout(resolve, 2000));
   // }
 
-  async function addCourseToEnrolled() {
-    try {
-      const id = await firebase.auth().currentUser.uid;
-      addCourse(id, course);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
   useEffect(() => {
+    async function addCourseToEnrolled() {
+      try {
+        const id = await firebase.auth().currentUser.uid;
+        addCourse(id, course);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    for (let enrolledCourse of enrolledCourses) {
+      if (_.isEqual(enrolledCourse, course)) {
+        setIsEnrolled(true);
+        console.log("FOUND", course);
+      }
+    }
+
     if (isLoading) {
       addCourseToEnrolled().then(() => {
         setLoading(false);
       });
     }
-  }, [isLoading]);
-
+  }, [isLoading, addCourse, course, enrolledCourses]);
   const handleClick = () => setLoading(true);
 
   return (
@@ -58,8 +66,8 @@ const CourseListItem = ({ course, index, addCourse }) => {
           <p>{course.description}</p>
           <Button
             variant="outline-success"
-            disabled={isLoading}
-            onClick={!isLoading ? handleClick : null}
+            disabled={isLoading || isEnrolled}
+            onClick={!isLoading && !isEnrolled ? handleClick : null}
           >
             {isLoading ? "Enrolling..." : "Enroll"}
           </Button>
