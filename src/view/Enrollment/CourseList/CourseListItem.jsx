@@ -44,7 +44,7 @@ const CourseListItem = ({ course, index }) => {
       </Accordion.Toggle>
 
       <Accordion.Collapse eventKey={index}>
-        <Card.Body className="border border-bottom-0 border-left-0 border-right-0">
+        <Card.Header className="border border-bottom-0 border-left-0 border-right-0">
           <p>{course.description}</p>
           <Button
             variant="outline-success"
@@ -53,7 +53,7 @@ const CourseListItem = ({ course, index }) => {
           >
             {isLoading ? "Enrolling..." : "Enroll"}
           </Button>
-        </Card.Body>
+        </Card.Header>
       </Accordion.Collapse>
     </Card>
   );

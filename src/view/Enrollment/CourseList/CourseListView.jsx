@@ -19,7 +19,7 @@ const CourseListView = ({ courses }) => {
           {courses.length !== 0 ? (
             // Shows fetched data if it exists
             courses.map((course, index) => (
-              <CourseListItem key={course.id} course={course} index={index} />
+              <CourseListItem key={course.course_identifier + course.course_number} course={course} index={index} />
             ))
           ) : (
             // Spinner shows if data isn't fetched or doesn't exist
