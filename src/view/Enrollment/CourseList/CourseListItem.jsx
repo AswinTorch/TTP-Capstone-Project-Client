@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import firebase from "../../../firebase";
 
 /**
  * Represents a single list item in CourseListView
@@ -9,16 +10,25 @@ import Button from "react-bootstrap/Button";
  *
  * Receives props (fetched data) from CourseListView and renders it
  */
-const CourseListItem = ({ course, index }) => {
-  function simulateNetworkRequest() {
-    return new Promise((resolve) => setTimeout(resolve, 2000));
-  }
-
+const CourseListItem = ({ course, index, addCourse }) => {
   const [isLoading, setLoading] = useState(false);
+
+  // function simulateNetworkRequest() {
+  //   return new Promise((resolve) => setTimeout(resolve, 2000));
+  // }
+
+  async function addCourseToEnrolled() {
+    try {
+      const id = await firebase.auth().currentUser.uid;
+      addCourse(id, course);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   useEffect(() => {
     if (isLoading) {
-      simulateNetworkRequest().then(() => {
+      addCourseToEnrolled().then(() => {
         setLoading(false);
       });
     }

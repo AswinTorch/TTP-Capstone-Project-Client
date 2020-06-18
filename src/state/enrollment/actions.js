@@ -21,3 +21,10 @@ export const fetchStudent = (student) => {
     payload: student,
   };
 };
+
+export const addCourse = (course) => {
+  return {
+    type: types.ADD_COURSE,
+    payload: course,
+  };
+};

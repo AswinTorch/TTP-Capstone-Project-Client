@@ -15,6 +15,14 @@ const reducer = (state = initialState, action) => {
       return { ...state, allCourses: action.payload };
     case types.FETCH_STUDENT:
       return { ...state, student: action.payload };
+    case types.ADD_COURSE:
+      return {
+        ...state,
+        student: {
+          ...state.student,
+          enrolled_courses: [...state.student.enrolled_courses, action.payload],
+        },
+      };
     default:
       return state;
   }

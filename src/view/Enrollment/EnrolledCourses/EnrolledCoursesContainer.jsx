@@ -13,7 +13,6 @@ import EnrolledCoursesView from "./EnrolledCoursesView";
 class EnrolledCoursesContainer extends Component {
   async componentDidMount() {
     const id = firebase.auth().currentUser.uid;
-    console.log(id);
     await this.props.fetchStudent(id);
   }
 
