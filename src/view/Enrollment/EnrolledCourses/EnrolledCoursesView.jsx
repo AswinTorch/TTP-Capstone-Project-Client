@@ -21,7 +21,7 @@ const EnrolledCoursesView = (props) => {
               // Shows fetched data if it exists
 
               props.student.enrolled_courses.map((course) => (
-                <EnrolledCourseItem course={course} />
+                <EnrolledCourseItem course={course} key={course.course_name} />
               ))
             ) : (
               // Spinner shows if data isn't fetched or doesn't exist
