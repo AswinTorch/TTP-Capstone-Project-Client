@@ -22,9 +22,9 @@ export const addCourse = (course) => {
   };
 };
 
-export const dropCourse = (updatedStudent) => {
+export const dropCourse = (removedCourse) => {
   return {
     type: types.DROP_COURSE,
-    payload: updatedStudent,
+    payload: removedCourse,
   };
 };

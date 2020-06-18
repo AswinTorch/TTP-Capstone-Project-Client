@@ -44,7 +44,19 @@ const EnrolledCourseItem = ({ course, dropCourse }) => {
             </span>
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>{course.description}</Modal.Body>
+        <Modal.Body>
+          <p>{course.description}</p>
+          {course.lecturer && (
+            <p>
+              Available Professors:{" "}
+              {course.lecturer.map((prof) => (
+                <span class="badge badge-secondary mr-2" key={prof}>
+                  {prof}{" "}
+                </span>
+              ))}
+            </p>
+          )}
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="info" onClick={handleClose}>
             Swap
