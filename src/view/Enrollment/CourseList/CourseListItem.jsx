@@ -27,14 +27,17 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
       }
     }
 
-    // Checks if current course is already in enrolled courses list of student
-    for (let enrolledCourse of enrolledCourses) {
-      if (_.isEqual(enrolledCourse, course)) {
-        setIsEnrolled(true);
-      }
-      else if(!_.isEqual(enrolledCourse, course))
-      {
-        setIsEnrolled(false);
+    if(enrolledCourses)
+    {
+      // Checks if current course is already in enrolled courses list of student
+      for (let enrolledCourse of enrolledCourses) {
+        if (_.isEqual(enrolledCourse, course)) {
+          setIsEnrolled(true);
+        }
+        else if(!_.isEqual(enrolledCourse, course))
+        {
+          setIsEnrolled(false);
+        }
       }
     }
 
@@ -71,7 +74,7 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
             <p>
               Available Professors:{" "}
               {course.lecturer.map((prof) => (
-                <span class="badge badge-secondary mr-2" key={prof}>
+                <span className="badge badge-secondary mr-2" key={prof}>
                   {prof}{" "}
                 </span>
               ))}
