@@ -24,7 +24,7 @@ export const fetchAllCoursesThunk = () => (dispatch) => {
 
 // Thunk to fetch the current student model of signed in user
 export const fetchStudentThunk = (id) => async (dispatch) => {
-  const response = await axios.get(`/api/students/id/${id}`);
+  const response = await axios.get(`/api/students/${id}`);
   const student = response.data;
   dispatch(fetchStudent(student));
 };
