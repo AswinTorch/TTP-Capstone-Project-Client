@@ -3,6 +3,7 @@ import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import firebase from "../../../firebase";
+import _ from "lodash";
 
 /**
  * Represents a single list item in CourseListView
@@ -10,30 +11,36 @@ import firebase from "../../../firebase";
  *
  * Receives props (fetched data) from CourseListView and renders it
  */
-const CourseListItem = ({ course, index, addCourse }) => {
+const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
   const [isLoading, setLoading] = useState(false);
+  const [isEnrolled, setIsEnrolled] = useState(false);
 
-  // function simulateNetworkRequest() {
-  //   return new Promise((resolve) => setTimeout(resolve, 2000));
-  // }
-
-  async function addCourseToEnrolled() {
-    try {
-      const id = await firebase.auth().currentUser.uid;
-      addCourse(id, course);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
+  // Runs on initial render of component and when state is updated
   useEffect(() => {
+    // Function that calls the redux addCourse with current user id and course to add to enrolled courses
+    async function addCourseToEnrolled() {
+      try {
+        const id = await firebase.auth().currentUser.uid;
+        addCourse(id, course);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    // Checks if current course is already in enrolled courses list of student
+    for (let enrolledCourse of enrolledCourses) {
+      if (_.isEqual(enrolledCourse, course)) {
+        setIsEnrolled(true);
+      }
+    }
+
+    // Handles loading "animation" of button || Barely noticable
     if (isLoading) {
       addCourseToEnrolled().then(() => {
         setLoading(false);
       });
     }
-  }, [isLoading]);
-
+  }, [isLoading, addCourse, course, enrolledCourses]);
   const handleClick = () => setLoading(true);
 
   return (
@@ -58,8 +65,8 @@ const CourseListItem = ({ course, index, addCourse }) => {
           <p>{course.description}</p>
           <Button
             variant="outline-success"
-            disabled={isLoading}
-            onClick={!isLoading ? handleClick : null}
+            disabled={isLoading || isEnrolled}
+            onClick={!isLoading && !isEnrolled ? handleClick : null}
           >
             {isLoading ? "Enrolling..." : "Enroll"}
           </Button>
