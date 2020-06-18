@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import firebase from "../../../firebase";
 
 /**
  * Represents a single list item in EnrolledCoursesView
@@ -8,11 +9,16 @@ import Modal from "react-bootstrap/Modal";
  *
  * Receives props (fetched data) from EnrolledCoursesView and renders it
  */
-const EnrolledCourseItem = ({ course }) => {
+const EnrolledCourseItem = ({ course, dropCourse }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleDrop = async () => {
+    const id = await firebase.auth().currentUser.uid;
+    dropCourse(id, course);
+  };
 
   return (
     <div>
@@ -43,7 +49,7 @@ const EnrolledCourseItem = ({ course }) => {
           <Button variant="info" onClick={handleClose}>
             Swap
           </Button>
-          <Button variant="danger" onClick={handleClose}>
+          <Button variant="danger" onClick={handleDrop}>
             Drop
           </Button>
         </Modal.Footer>
