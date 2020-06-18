@@ -1,20 +1,8 @@
 import axios from "axios";
 
-import {
-  fetchEnrolledCourses,
-  fetchAllCourses,
-  fetchStudent,
-  addCourse,
-} from "./actions";
+import { fetchAllCourses, fetchStudent, addCourse } from "./actions";
 
-// Thunk creators for enrollment
-export const fetchEnrolledCoursesThunk = ([courseIds]) => (dispatch) => {
-  return axios
-    .get(`/api/students/addCourse/${courseIds[0]}/`)
-    .then((res) => res.data)
-    .then((courses) => dispatch(fetchEnrolledCourses(courses)))
-    .catch((err) => console.error(err));
-};
+// THUNKS
 
 // Thunk to fetch all courses in the database
 export const fetchAllCoursesThunk = () => (dispatch) => {

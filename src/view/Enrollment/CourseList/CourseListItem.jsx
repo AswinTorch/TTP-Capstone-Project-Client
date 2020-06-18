@@ -15,11 +15,9 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
   const [isLoading, setLoading] = useState(false);
   const [isEnrolled, setIsEnrolled] = useState(false);
 
-  // function simulateNetworkRequest() {
-  //   return new Promise((resolve) => setTimeout(resolve, 2000));
-  // }
-
+  // Runs on initial render of component and when state is updated
   useEffect(() => {
+    // Function that calls the redux addCourse with current user id and course to add to enrolled courses
     async function addCourseToEnrolled() {
       try {
         const id = await firebase.auth().currentUser.uid;
@@ -29,13 +27,14 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
       }
     }
 
+    // Checks if current course is already in enrolled courses list of student
     for (let enrolledCourse of enrolledCourses) {
       if (_.isEqual(enrolledCourse, course)) {
         setIsEnrolled(true);
-        console.log("FOUND", course);
       }
     }
 
+    // Handles loading "animation" of button || Barely noticable
     if (isLoading) {
       addCourseToEnrolled().then(() => {
         setLoading(false);

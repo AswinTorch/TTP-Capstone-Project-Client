@@ -49,10 +49,9 @@ const mapState = (state) => {
 // Map dispatch to props
 const mapDispatch = (dispatch) => {
   return {
-    // Uncommment this and remove other function when courses list is needed;
     // Doing this to avoid overuse of firebase calls
-    fetchCourses: () => dispatch(fetchAllCoursesThunk()),
     // fetchCourses: () => console.log("Temp"),
+    fetchCourses: () => dispatch(fetchAllCoursesThunk()),
     fetchStudent: (id) => dispatch(fetchStudentThunk(id)),
     addCourse: (id, course) => dispatch(addCourseThunk(id, course)),
   };
