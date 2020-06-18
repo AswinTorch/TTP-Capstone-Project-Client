@@ -53,7 +53,7 @@ class App extends Component
                 const uid = user.uid;
                 
                 // Let's send a request to check if user exists
-                axios.get(`/api/students/id/${uid}`)
+                axios.get(`/api/students/${uid}`)
                 .then((res) => res.data)
                 .catch((err) =>
                 {

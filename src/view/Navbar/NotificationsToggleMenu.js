@@ -50,9 +50,11 @@ const NotificationsToggleMenu = (props) => {
             </div>
             <div>
               <div className="small text-muted">Today</div>
+
               <span className="font-weight-bold">
                 Tuition is due immediately.
               </span>
+
             </div>
           </a>
         </Dropdown.Item>
