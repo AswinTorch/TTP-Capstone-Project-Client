@@ -35,8 +35,8 @@ const mapDispatch = (dispatch) => {
   return {
     // Uncommment this and remove other function when courses list is needed;
     // Doing this to avoid overuse of firebase calls
-    // fetchCourses: () => dispatch(fetchAllCoursesThunk()),
-    fetchCourses: () => console.log("Temp"),
+    fetchCourses: () => dispatch(fetchAllCoursesThunk()),
+    // fetchCourses: () => console.log("Temp"),
   };
 };
 
