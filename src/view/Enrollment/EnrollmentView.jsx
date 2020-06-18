@@ -16,14 +16,14 @@ const EnrollmentView = (props) => {
       {/* Search Bar and Filter */}
       <div className="mt-4 border-0">
         <div className="pt-4 pb-2">
-          <form class="form-inline my-2 my-lg-0">
+          <form className="form-inline my-2 my-lg-0">
             <input
-              class="form-control mr-sm-2"
+              className="form-control mr-sm-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-outline-secondary my-2 my-sm-0 mr-2">
+            <button className="btn btn-outline-secondary my-2 my-sm-0 mr-2">
               Search
             </button>
             <Dropdown>
