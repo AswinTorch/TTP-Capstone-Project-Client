@@ -11,21 +11,18 @@ import Spinner from "react-bootstrap/Spinner";
  * Passes props (fetched data) down to EnrolledCourseItem to generate
  */
 const EnrolledCoursesView = (props) => {
-  const courses = props.student.enrolled_courses;
-  console.log(courses);
-
   return (
-    <div className="card mt-4 shadow border-0">
+    <div className="card mt-4 shadow rounded border-0">
       <h5 className="card-header text-primary">Your Courses</h5>
       <div className="card-body">
-        <ul className="list-group">
+        <ul className="list-group rounded">
           <div>
-            {0 !== 0 ? (
+            {props.student.enrolled_courses ? (
               // Shows fetched data if it exists
 
-              {
-                /* courses.map((course) => <EnrolledCourseItem course={course} />) */
-              }
+              props.student.enrolled_courses.map((course) => (
+                <EnrolledCourseItem course={course} />
+              ))
             ) : (
               // Spinner shows if data isn't fetched or doesn't exist
               <div className="text-center">

@@ -8,7 +8,7 @@ import Modal from "react-bootstrap/Modal";
  *
  * Receives props (fetched data) from EnrolledCoursesView and renders it
  */
-const EnrolledCourseItem = (props) => {
+const EnrolledCourseItem = ({ course }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -17,32 +17,28 @@ const EnrolledCourseItem = (props) => {
   return (
     <div>
       <li
-        className="list-group-item list-group-item-action btn btn-outline-warning justify-content-between align-items-center d-flex rounded-top"
+        className="list-group-item list-group-item-action btn btn-outline-warning justify-content-between align-items-center d-flex rounded"
         data-toggle="modal"
         data-target="#cisc3440-modal"
         onClick={handleShow}
       >
-        CISC. 3440: Machine Learning
-        <span className="badge badge-success">3 credits</span>
+        {course.course_identifier} {course.course_number}: {course.course_name}
+        <span className="badge badge-success">
+          {Number(course.units)} credits
+        </span>
       </li>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>
-            CISC. 3440: Machine Learning <br />
-            <span className="badge badge-success">3 credits</span>
+            {course.course_identifier} {course.course_number}:{" "}
+            {course.course_name} <br />
+            <span className="badge badge-success">
+              {Number(course.units)} credits
+            </span>
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          An introduction to machine learning for students with some
-          mathematical maturity. Topics include: machine learning in relation to
-          artificial intelligence, data sources and characteristics, linear and
-          non-linear regression, machine learning concepts like the
-          bias-variance tradeoff, linear and non-linear classification, hidden
-          Markov models and the expectation-maximization algorithm, unsupervised
-          learning, and deep learning. Examples will be drawn from several
-          domains including natural language processing.
-        </Modal.Body>
+        <Modal.Body>{course.description}</Modal.Body>
         <Modal.Footer>
           <Button variant="info" onClick={handleClose}>
             Swap
