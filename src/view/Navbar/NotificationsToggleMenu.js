@@ -42,7 +42,7 @@ const NotificationsToggleMenu = (props) => {
           <a className="dropdown-item d-flex align-items-center" href="/#">
             <div className="mr-3">
               <div
-                clasNames=" bg-primary rounded-circle d-flex align-items-center justify-content-center"
+                clasName=" bg-primary rounded-circle d-flex align-items-center justify-content-center"
                 style={{ width: 40, height: 40 }}
               >
                 <i className="fas fa-file-alt text-white"></i>
