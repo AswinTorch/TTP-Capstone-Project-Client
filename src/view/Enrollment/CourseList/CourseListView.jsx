@@ -10,7 +10,7 @@ import Spinner from "react-bootstrap/Spinner";
  * Receives props (fetched data) from CourseListContainer
  * Passes props (fetched data) down to CourseListItem to generate
  */
-const CourseListView = ({ courses }) => {
+const CourseListView = ({ courses, addCourse }) => {
   return (
     <div className="card card-block mt-4 shadow border-0">
       <h5 className="card-header text-info">Course List</h5>
@@ -19,7 +19,12 @@ const CourseListView = ({ courses }) => {
           {courses.length !== 0 ? (
             // Shows fetched data if it exists
             courses.map((course, index) => (
-              <CourseListItem key={course.course_identifier + course.course_number} course={course} index={index} />
+              <CourseListItem
+                key={course.course_identifier + course.course_number}
+                course={course}
+                index={index}
+                addCourse={addCourse}
+              />
             ))
           ) : (
             // Spinner shows if data isn't fetched or doesn't exist

@@ -41,10 +41,9 @@ export const fetchStudentThunk = (id) => async (dispatch) => {
 // Thunk to add course selected from course list to student's enrolled courses
 export const addCourseThunk = (id, course) => async (dispatch) => {
   try {
-    const addedCourse = await axios.put(
-      `/api/students/${id}/addcourse`,
-      course
-    );
+    const response = await axios.put(`/api/students/${id}/addcourse`, course);
+    const addedCourse = response.data;
+    console.log(addedCourse);
     dispatch(addCourse(addedCourse));
   } catch (error) {
     console.error(error);

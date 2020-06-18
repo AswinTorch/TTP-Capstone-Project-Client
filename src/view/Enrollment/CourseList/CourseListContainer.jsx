@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchAllCoursesThunk } from "../../../state/enrollment/thunks";
+import {
+  fetchAllCoursesThunk,
+  addCourseThunk,
+} from "../../../state/enrollment/thunks";
 import CourseListView from "./CourseListView";
 
 /**
@@ -17,7 +20,12 @@ class CourseListContainer extends Component {
   }
 
   render() {
-    return <CourseListView courses={this.props.courses} />;
+    return (
+      <CourseListView
+        courses={this.props.courses}
+        addCourse={this.props.addCourse}
+      />
+    );
   }
 }
 
@@ -37,6 +45,8 @@ const mapDispatch = (dispatch) => {
     // Doing this to avoid overuse of firebase calls
     fetchCourses: () => dispatch(fetchAllCoursesThunk()),
     // fetchCourses: () => console.log("Temp"),
+
+    addCourse: (id, course) => dispatch(addCourseThunk(id, course)),
   };
 };
 
