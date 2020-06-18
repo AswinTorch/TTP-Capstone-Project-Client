@@ -49,7 +49,7 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
 
   return (
     <Card>
-      <Accordion.Toggle as={Card.Body} variant="link" eventKey={index} className="btn btn-outline-dark">
+      <Accordion.Toggle as={Card.Body} variant="link" eventKey={index} className="btn btn-light">
         <div className="d-flex justify-content-between align-items-center">
           <span className="">
             {course.course_identifier} {course.course_number}:{" "}
