@@ -1,7 +1,7 @@
 import React from "react";
 
-import MoneyReceivedView from "./MoneyReceivedView";
-import MoneyOwedView from "./MoneyOwedView";
+import MoneyReceivedView from "./FinanceOverview/MoneyReceivedView";
+import MoneyOwedView from "./FinanceOverview/MoneyOwedView";
 
 const FinanceView = (props) => {
   return (

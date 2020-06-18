@@ -1,8 +1,8 @@
 import React from "react";
 import "../App/App.css";
 import EnrolledCoursesContainer from "../Enrollment/EnrolledCourses/EnrolledCoursesContainer";
-import MoneyReceivedView from "../Finance/MoneyReceivedView";
-import MoneyOwedView from "../Finance/MoneyOwedView";
+import MoneyReceivedView from "../Finance/FinanceOverview/MoneyReceivedView";
+import MoneyOwedView from "../Finance/FinanceOverview/MoneyOwedView";
 
 const DashboardView = (props) => {
   return (
