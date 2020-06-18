@@ -1,6 +1,11 @@
 import axios from "axios";
 
-import { fetchEnrolledCourses, fetchAllCourses, fetchStudent } from "./actions";
+import {
+  fetchEnrolledCourses,
+  fetchAllCourses,
+  fetchStudent,
+  addCourse,
+} from "./actions";
 
 // Thunk creators for enrollment
 export const fetchEnrolledCoursesThunk = ([courseIds]) => (dispatch) => {
@@ -24,7 +29,24 @@ export const fetchAllCoursesThunk = () => (dispatch) => {
 
 // Thunk to fetch the current student model of signed in user
 export const fetchStudentThunk = (id) => async (dispatch) => {
-  const response = await axios.get(`/api/students/${id}`);
-  const student = response.data;
-  dispatch(fetchStudent(student));
+  try {
+    const response = await axios.get(`/api/students/${id}`);
+    const student = response.data;
+    dispatch(fetchStudent(student));
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// Thunk to add course selected from course list to student's enrolled courses
+export const addCourseThunk = (id, course) => async (dispatch) => {
+  try {
+    const addedCourse = await axios.put(
+      `/api/students/${id}/addcourse`,
+      course
+    );
+    dispatch(addCourse(addedCourse));
+  } catch (error) {
+    console.error(error);
+  }
 };
