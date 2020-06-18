@@ -32,6 +32,10 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
       if (_.isEqual(enrolledCourse, course)) {
         setIsEnrolled(true);
       }
+      else if(!_.isEqual(enrolledCourse, course))
+      {
+        setIsEnrolled(false);
+      }
     }
 
     // Handles loading "animation" of button || Barely noticable
