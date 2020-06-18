@@ -1,4 +1,5 @@
 import types from "./action_types";
+import _ from "lodash";
 
 // Reducer for enrollment
 const initialState = {
@@ -20,6 +21,13 @@ const reducer = (state = initialState, action) => {
           enrolled_courses: [...state.student.enrolled_courses, action.payload],
         },
       };
+    case types.DROP_COURSE:
+      let enrolledCourses = state.student.enrolled_courses;
+      const updatedCourses = enrolledCourses.filter(
+        (course) => !_.isEqual(course, action.payload)
+      );
+
+      return { ...state, student: { enrolled_courses: updatedCourses } };
     default:
       return state;
   }

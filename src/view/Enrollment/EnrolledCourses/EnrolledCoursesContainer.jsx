@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchStudentThunk } from "../../../state/enrollment/thunks";
+import {
+  fetchStudentThunk,
+  dropCourseThunk,
+} from "../../../state/enrollment/thunks";
 import firebase from "../../../firebase";
 import EnrolledCoursesView from "./EnrolledCoursesView";
 
@@ -17,7 +20,12 @@ class EnrolledCoursesContainer extends Component {
   }
 
   render() {
-    return <EnrolledCoursesView student={this.props.student} />;
+    return (
+      <EnrolledCoursesView
+        student={this.props.student}
+        dropCourse={this.props.dropCourse}
+      />
+    );
   }
 }
 
@@ -32,6 +40,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchStudent: (id) => dispatch(fetchStudentThunk(id)),
+    dropCourse: (id, course) => dispatch(dropCourseThunk(id, course)),
   };
 };
 

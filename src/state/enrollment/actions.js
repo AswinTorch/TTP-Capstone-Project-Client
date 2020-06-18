@@ -21,3 +21,10 @@ export const addCourse = (course) => {
     payload: course,
   };
 };
+
+export const dropCourse = (updatedStudent) => {
+  return {
+    type: types.DROP_COURSE,
+    payload: updatedStudent,
+  };
+};

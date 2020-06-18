@@ -1,6 +1,11 @@
 import axios from "axios";
 
-import { fetchAllCourses, fetchStudent, addCourse } from "./actions";
+import {
+  fetchAllCourses,
+  fetchStudent,
+  addCourse,
+  dropCourse,
+} from "./actions";
 
 // THUNKS
 
@@ -31,8 +36,21 @@ export const addCourseThunk = (id, course) => async (dispatch) => {
   try {
     const response = await axios.put(`/api/students/${id}/addcourse`, course);
     const addedCourse = response.data;
-    console.log(addedCourse);
     dispatch(addCourse(addedCourse));
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// Thunk to remove selected course from student's enrolled courses
+export const dropCourseThunk = (id, course) => async (dispatch) => {
+  try {
+    const response = await axios.put(
+      `/api/students/${id}/removecourse`,
+      course
+    );
+    const updatedStudent = response.data;
+    dispatch(dropCourse(updatedStudent));
   } catch (error) {
     console.error(error);
   }
