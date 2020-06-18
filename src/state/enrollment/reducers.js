@@ -20,6 +20,8 @@ const reducer = (state = initialState, action) => {
           enrolled_courses: [...state.student.enrolled_courses, action.payload],
         },
       };
+    case types.DROP_COURSE:
+      return { ...state, student: action.payload };
     default:
       return state;
   }
