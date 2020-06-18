@@ -63,6 +63,16 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
       <Accordion.Collapse eventKey={index}>
         <Card.Header className="border border-bottom-0 border-left-0 border-right-0">
           <p>{course.description}</p>
+          {course.lecturer && (
+            <p>
+              Available Professors:{" "}
+              {course.lecturer.map((prof) => (
+                <span class="badge badge-secondary mr-2" key={prof}>
+                  {prof}{" "}
+                </span>
+              ))}
+            </p>
+          )}
           <Button
             variant="outline-success"
             disabled={isLoading || isEnrolled}

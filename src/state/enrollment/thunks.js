@@ -49,8 +49,8 @@ export const dropCourseThunk = (id, course) => async (dispatch) => {
       `/api/students/${id}/removecourse`,
       course
     );
-    const updatedStudent = response.data;
-    dispatch(dropCourse(updatedStudent));
+    const removedCourse = response.data;
+    dispatch(dropCourse(removedCourse));
   } catch (error) {
     console.error(error);
   }
