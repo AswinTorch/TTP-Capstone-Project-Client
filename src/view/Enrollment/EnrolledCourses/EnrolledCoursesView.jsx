@@ -13,8 +13,8 @@ import Spinner from "react-bootstrap/Spinner";
 const EnrolledCoursesView = (props) => {
   return (
     <div className="card mt-4 shadow rounded border-0">
-      <h5 className="card-header text-primary">Your Courses</h5>
-      <div className="card-body">
+      <h5 className="card-header text-primary">Enrolled Courses</h5>
+      <div className="">
         <ul className="list-group rounded">
           <div>
             {props.student.enrolled_courses ? (

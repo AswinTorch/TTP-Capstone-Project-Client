@@ -12,10 +12,10 @@ import Spinner from "react-bootstrap/Spinner";
  */
 const CourseListView = ({ courses, addCourse, enrolledCourses }) => {
   return (
-    <div className="card card-block mt-4 shadow border-0">
+    <div className="card card-block mt-4 shadow border-0 rounded">
       <h5 className="card-header text-info">Course List</h5>
-      <div className="card-body">
-        <Accordion>
+      <div className="rounded">
+        <Accordion className="rounded-0">
           {courses.length !== 0 ? (
             // Shows fetched data if it exists
             courses.map((course, index) => (

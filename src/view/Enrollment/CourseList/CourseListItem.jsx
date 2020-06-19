@@ -54,9 +54,9 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
         as={Card.Body}
         variant="link"
         eventKey={index}
-        className="btn btn-light"
+        className="btn btn-light rounded-0"
       >
-        <div className="d-flex justify-content-between align-items-center">
+        <div className="d-flex justify-content-between align-items-center rounded-0">
           <span className="">
             {course.course_identifier} {course.course_number}:{" "}
             {course.course_name}
@@ -73,14 +73,19 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
       <Accordion.Collapse eventKey={index}>
         <Card.Header className="border border-bottom-0 border-left-0 border-right-0">
           <p>{course.description}</p>
-          {course.lecturer && (
+          {course.lecturer ? (
             <p>
               Available Professors:{" "}
               {course.lecturer.map((prof) => (
-                <span className="badge badge-secondary mr-2 dropbtn" key={prof}>
+                <span className="badge badge-secondary mr-2" key={prof}>
                   {prof}{" "}
                 </span>
               ))}
+            </p>
+          ) : (
+            <p>
+              Available Professors:{" "}
+              <span className="badge badge-secondary mr-2">Staff</span>
             </p>
           )}
           <div className="form-inline mb-2">
