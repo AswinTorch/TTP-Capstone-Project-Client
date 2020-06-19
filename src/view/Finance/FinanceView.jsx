@@ -2,6 +2,7 @@ import React from "react";
 
 import MoneyReceivedView from "./FinanceOverview/MoneyReceivedView";
 import MoneyOwedContainer from "./FinanceOverview/MoneyOwedContainer";
+import FinanceDetailsContainer from "./FinanceDetails/FinanceDetailsContainer";
 
 const FinanceView = (props) => {
   return (
@@ -14,6 +15,8 @@ const FinanceView = (props) => {
         <MoneyReceivedView />
         <MoneyOwedContainer />
       </div>
+
+      <FinanceDetailsContainer />
     </div>
   );
 };
