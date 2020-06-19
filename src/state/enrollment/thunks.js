@@ -6,6 +6,7 @@ import {
   addCourse,
   dropCourse,
   fetchProfessorReviews,
+  swapCourses,
 } from "./actions";
 
 // THUNKS
@@ -67,8 +68,7 @@ export const swapCoursesThunk = (id, previousCourse, newCourse) => async (
       newCourse,
     ]);
 
-    dispatch(dropCourse(previousCourse));
-    dispatch(addCourse(newCourse));
+    dispatch(swapCourses(previousCourse, newCourse));
   } catch (error) {
     console.error(error);
   }

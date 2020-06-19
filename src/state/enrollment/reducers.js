@@ -19,6 +19,7 @@ const reducer = (state = initialState, action) => {
       return { ...state, professorReviews: action.payload };
 
     // Operations
+    // ADD
     case types.ADD_COURSE:
       return {
         ...state,
@@ -27,6 +28,7 @@ const reducer = (state = initialState, action) => {
           enrolled_courses: [...state.student.enrolled_courses, action.payload],
         },
       };
+    // DROP
     case types.DROP_COURSE:
       let enrolledCourses = state.student.enrolled_courses;
       const updatedCourses = enrolledCourses.filter(
@@ -34,9 +36,23 @@ const reducer = (state = initialState, action) => {
       );
       return {
         ...state,
-        student: { enrolled_courses: updatedCourses },
+        student: { ...state.student, enrolled_courses: updatedCourses },
       };
-    // SWAP GOES HERE
+    // SWAP
+    case types.SWAP_COURSES:
+      let previousCourse = action.payload[0];
+      let newCourse = action.payload[1];
+
+      return {
+        ...state,
+        student: {
+          ...state.student,
+          enrolled_courses: [
+            ...state.student.enrolled_courses,
+            newCourse,
+          ].filter((course) => !_.isEqual(course, previousCourse)),
+        },
+      };
 
     default:
       return state;
