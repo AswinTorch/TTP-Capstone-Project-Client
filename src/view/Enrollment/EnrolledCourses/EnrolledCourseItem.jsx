@@ -50,7 +50,7 @@ const EnrolledCourseItem = ({ course, dropCourse }) => {
             <p>
               Available Professors:{" "}
               {course.lecturer.map((prof) => (
-                <span class="badge badge-secondary mr-2" key={prof}>
+                <span className="badge badge-secondary mr-2" key={prof}>
                   {prof}{" "}
                 </span>
               ))}

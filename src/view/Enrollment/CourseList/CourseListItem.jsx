@@ -33,8 +33,9 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
       for (let enrolledCourse of enrolledCourses) {
         if (_.isEqual(enrolledCourse, course)) {
           setIsEnrolled(true);
+          break;
         }
-        else if(!_.isEqual(enrolledCourse, course))
+        else if(!_.isEqual(enrolledCourse, course) && isEnrolled)
         {
           setIsEnrolled(false);
         }
@@ -81,7 +82,7 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
             </p>
           )}
           <Button
-            variant="outline-success"
+            variant={isLoading || isEnrolled ? "outline-danger" : "outline-success"}
             disabled={isLoading || isEnrolled}
             onClick={!isLoading && !isEnrolled ? handleClick : null}
           >
