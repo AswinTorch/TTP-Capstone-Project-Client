@@ -55,3 +55,16 @@ export const dropCourseThunk = (id, course) => async (dispatch) => {
     console.error(error);
   }
 };
+
+// Thunk to remove selected course from student's enrolled courses
+export const fetchProfessorReviews = (professorName) => async (dispatch) => {
+  try {
+    const response = await axios.get(
+      `/api/professor/getComments/${professorName}`
+    );
+    const reviews = response.data;
+    dispatch(fetchProfessorReviews(reviews));
+  } catch (error) {
+    console.error(error);
+  }
+};
