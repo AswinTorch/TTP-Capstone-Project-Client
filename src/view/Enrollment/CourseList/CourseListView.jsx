@@ -16,7 +16,7 @@ const CourseListView = ({ courses, addCourse, enrolledCourses }) => {
       <h5 className="card-header text-info">Course List</h5>
       <div className="rounded">
         <Accordion className="rounded-0">
-          {courses.length !== 0 ? (
+          {courses && courses.length !== 0 ? (
             // Shows fetched data if it exists
             courses.map((course, index) => (
               <CourseListItem
