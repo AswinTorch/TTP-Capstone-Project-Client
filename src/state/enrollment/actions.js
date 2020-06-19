@@ -30,7 +30,12 @@ export const dropCourse = (removedCourse) => {
 };
 
 // NEEDS TO BE FINISHED
-export const swapCourse = () => {};
+export const swapCourses = (previousCourse, newCourse) => {
+  return {
+    type: types.SWAP_COURSES,
+    payload: [previousCourse, newCourse],
+  };
+};
 
 export const fetchProfessorReviews = (reviews) => {
   return {

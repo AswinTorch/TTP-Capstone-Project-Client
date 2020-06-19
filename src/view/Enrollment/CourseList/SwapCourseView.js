@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { useDispatch } from "react-redux";
+import { swapCoursesThunk } from "../../../state/enrollment/thunks";
+import firebase from "../../../firebase";
 
 const SwapCourseView = ({ course, enrolledCourses }) => {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const dispatch = useDispatch();
   const handleSwap = (enrolledCourse) => {
     // Handle the swap here by passing the enrolledCourse and the course prop in this view
     // a thunk function to swap
+    const id = firebase.auth().currentUser.uid;
+    dispatch(swapCoursesThunk(id, enrolledCourse, course));
 
     // And then modal will close
     handleClose();

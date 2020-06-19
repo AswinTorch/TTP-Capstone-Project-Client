@@ -1,16 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProfessorReviewsThunk } from "../../../state/enrollment/thunks";
 
 const ProfessorView = (props) => {
+  // State to track modal open/close button click
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
+
+  // Function to fetch professor reviews when professor name is clicked on
   const handleShow = async () => {
     await dispatch(fetchProfessorReviewsThunk(props.prof));
     setShow(true);
   };
 
+  // Mapping state and accessing dispatch from Redux
   const reviews = useSelector((state) => state.enrollment.professorReviews);
   const dispatch = useDispatch();
 
