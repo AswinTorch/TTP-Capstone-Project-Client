@@ -1,4 +1,5 @@
 import types from "./action_types";
+import finTypes from "../finance/action_types";
 import _ from "lodash";
 
 // Reducer for enrollment
@@ -53,6 +54,15 @@ const reducer = (state = initialState, action) => {
             newCourse,
           ].filter((course) => !_.isEqual(course, previousCourse)),
         },
+      };
+    // TRANSACTION HISTORY
+    case finTypes.ADD_TRANSACTION:
+      return {
+        ...state,
+        student: {
+          ...state.student,
+          transaction_history: [...state.student.transaction_history, action.payload],
+        }
       };
 
     default:

@@ -1,0 +1,4 @@
+// ACTION TYPES
+const ADD_TRANSACTION = "ADD_TRANSACTION";
+
+export default { ADD_TRANSACTION };
