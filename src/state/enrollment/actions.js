@@ -28,7 +28,12 @@ export const dropCourse = (removedCourse) => {
     payload: removedCourse,
   };
 };
-
+export const searchCourse = (courseList) => {
+  return {
+    type: types.SEARCH_COURSE_LIST,
+    payload: courseList,
+  };
+};
 // NEEDS TO BE FINISHED
 export const swapCourses = (previousCourse, newCourse) => {
   return {

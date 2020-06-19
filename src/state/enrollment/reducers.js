@@ -17,7 +17,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, student: action.payload };
     case types.FETCH_PROFESSOR_REVIEWS:
       return { ...state, professorReviews: action.payload };
-
+    case types.SEARCH_COURSE_LIST:
+      return { ...state, searchList: action.payload };
     // Operations
     // ADD
     case types.ADD_COURSE:

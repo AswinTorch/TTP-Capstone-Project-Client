@@ -7,6 +7,7 @@ import {
   dropCourse,
   fetchProfessorReviews,
   swapCourses,
+  searchCourse
 } from "./actions";
 
 // THUNKS
@@ -73,6 +74,17 @@ export const swapCoursesThunk = (id, previousCourse, newCourse) => async (
     console.error(error);
   }
 };
+//Thunk to get a list of course based on the search string
+export const getSearchThunk = (searchString) => async (dispatch) => {
+  try {
+    const response = await axios.get(`/api/courses/search/?search_string=${searchString}`);
+    const courseList = response.data;
+    dispatch(searchCourse(courseList));
+  } catch (error) {
+    console.error(error);
+  }
+}; 
+
 
 // Thunk to fetch professor's reviews based on their name
 export const fetchProfessorReviewsThunk = (professorName) => async (
