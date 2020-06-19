@@ -53,12 +53,12 @@ export const addCourseThunk = (id, course) => async (dispatch) => {
 // Thunk to remove selected course from student's enrolled courses
 export const dropCourseThunk = (id, course) => async (dispatch) => {
   try {
-    const response = await axios.put(
-      `/api/students/${id}/removecourse`,
-      course
-    );
-    const removedCourse = response.data;
+    const response = await axios.put(`/api/students/${id}/removecourse`, course);
+    const removedCourse = response.data.course;
+    const transaction = response.data.transaction;
+
     dispatch(dropCourse(removedCourse));
+    dispatch(addTransaction(transaction));
   } catch (error) {
     console.error(error);
   }
