@@ -7,6 +7,7 @@ import {
 } from "../../../state/enrollment/thunks";
 import CourseListView from "./CourseListView";
 import firebase from "../../../firebase";
+import Dropdown from "react-bootstrap/Dropdown";
 
 /**
  * Smart container for course list component
@@ -16,6 +17,15 @@ import firebase from "../../../firebase";
  */
 
 class CourseListContainer extends Component {
+  state = {
+    searchString: "",
+  };
+
+  handleChange = async (e) => {
+    const searchString = e.target.value;
+    this.setState({ searchString });
+  };
+
   // Fetches data from the server on first render of component
   async componentDidMount() {
     this.props.fetchCourses();
@@ -25,12 +35,53 @@ class CourseListContainer extends Component {
   }
 
   render() {
+    // Filtering by course name
+    // Add filter by prof name
+    const filteredCourses = this.props.courses.filter((course) => {
+      const courseName = (
+        course.course_identifier +
+        " " +
+        course.course_number
+      ).toLowerCase();
+      // Add filter by close/open when filter is selected :
+      return courseName.indexOf(this.state.searchString.toLowerCase()) !== -1;
+    });
+
     return (
-      <CourseListView
-        courses={this.props.courses}
-        addCourse={this.props.addCourse}
-        enrolledCourses={this.props.student.enrolled_courses}
-      />
+      <div>
+        {/* Search Bar and Filter */}
+        <div className="mt-4 border-0">
+          <div className="pt-4 pb-2">
+            <form className="form-inline my-2 my-lg-0">
+              <input
+                className="form-control mr-sm-2"
+                type="search"
+                value={this.state.searchString}
+                onChange={this.handleChange}
+                placeholder="Search"
+                aria-label="Search"
+              />
+
+              <Dropdown>
+                {" "}
+                &emsp;
+                <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                  Filter By
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/action-1">All Courses</Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">Open Courses</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </form>
+          </div>
+        </div>
+        <CourseListView
+          courses={filteredCourses}
+          addCourse={this.props.addCourse}
+          enrolledCourses={this.props.student.enrolled_courses}
+        />
+      </div>
     );
   }
 }
