@@ -14,7 +14,7 @@ const FinanceDetailsView = (props) =>
     return (
         <div className="card mt-4 shadow rounded border-0">
             <h5 className="card-header text-primary">Transaction History</h5>
-            <Table striped bordered responsive size="sm">
+            <Table striped bordered hover responsive trClassName="py-4">
                 <thead>
                     <tr>
                         <th>Course</th>
