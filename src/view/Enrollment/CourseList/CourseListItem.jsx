@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import firebase from "../../../firebase";
 import _ from "lodash";
 import SwapCourseView from "./SwapCourseView";
+import ProfessorView from "../Professor/ProfessorView.jsx";
 
 /**
  * Represents a single list item in CourseListView
@@ -78,9 +79,7 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
             <p>
               Available Professors:{" "}
               {course.lecturer.map((prof) => (
-                <span className="badge badge-secondary mr-2" key={prof}>
-                  {prof}{" "}
-                </span>
+                <ProfessorView prof={prof} />
               ))}
             </p>
           ) : (
