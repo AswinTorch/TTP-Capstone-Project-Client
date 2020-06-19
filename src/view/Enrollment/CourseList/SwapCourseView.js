@@ -29,6 +29,10 @@ const SwapCourseView = ({ course, enrolledCourses }) => {
           {enrolledCourses.map((enrolledCourse) => {
             return (
               <li
+                key={
+                  enrolledCourse.course_identifier +
+                  enrolledCourse.course_number
+                }
                 className="list-group-item list-group-item-action btn justify-content-between align-items-center d-flex rounded py-4 border-0"
                 onClick={() => handleSwap(enrolledCourse)}
               >

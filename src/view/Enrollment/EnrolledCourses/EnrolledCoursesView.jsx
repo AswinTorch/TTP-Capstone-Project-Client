@@ -1,7 +1,6 @@
 import React from "react";
 import "bootstrap/js/src/modal";
 import EnrolledCourseItem from "./EnrolledCourseItem";
-import Spinner from "react-bootstrap/Spinner";
 
 /**
  * Represents the entire view of the user's Enrolled Courses
