@@ -16,11 +16,11 @@ const NotificationsToggleMenu = (props) => {
       </Dropdown.Toggle>
 
       <Dropdown.Menu as={props.menuType} className="shadow border-0">
-        <Dropdown.Header>
+        <Dropdown.Header className="ml-4">
           <strong>Announcements</strong>
         </Dropdown.Header>
         <Dropdown.Item eventKey="1">
-          <a className="dropdown-item d-flex align-items-center" href="/#">
+          <div className="dropdown-item d-flex align-items-left">
             <div className="mr-3">
               <div
                 className=" bg-primary rounded-circle d-flex align-items-center justify-content-center"
@@ -35,11 +35,11 @@ const NotificationsToggleMenu = (props) => {
                 Registration for graduation coming up!
               </span>
             </div>
-          </a>
+          </div>
         </Dropdown.Item>
         <Dropdown.Divider />
         <Dropdown.Item eventKey="2">
-          <a className="dropdown-item d-flex align-items-center" href="/#">
+          <div className="dropdown-item d-flex align-items-center">
             <div className="mr-3">
               <div
                 className=" bg-primary rounded-circle d-flex align-items-center justify-content-center"
@@ -54,13 +54,12 @@ const NotificationsToggleMenu = (props) => {
               <span className="font-weight-bold">
                 Tuition is due immediately.
               </span>
-
             </div>
-          </a>
+          </div>
         </Dropdown.Item>
         <Dropdown.Divider />
         <Dropdown.Item eventKey="3">
-          <a className="dropdown-item d-flex align-items-center" href="/#">
+          <div className="dropdown-item d-flex align-items-center">
             <div className="mr-3">
               <div
                 className=" bg-primary rounded-circle d-flex align-items-center justify-content-center"
@@ -75,7 +74,7 @@ const NotificationsToggleMenu = (props) => {
                 Breaking news: college is a scam.
               </span>
             </div>
-          </a>
+          </div>
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

@@ -58,9 +58,6 @@ const EnrolledCourseItem = ({ course, dropCourse }) => {
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="info" onClick={handleClose}>
-            Swap
-          </Button>
           <Button variant="danger" onClick={handleDrop}>
             Drop
           </Button>

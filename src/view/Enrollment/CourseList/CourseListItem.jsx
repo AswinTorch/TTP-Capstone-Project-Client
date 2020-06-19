@@ -74,22 +74,14 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
         <Card.Header className="border border-bottom-0 border-left-0 border-right-0">
           <p>{course.description}</p>
           {course.lecturer && (
-            <div class="dropdown">
-              <p>
-                Available Professors:{" "}
-                {course.lecturer.map((prof) => (
-                  <span
-                    className="badge badge-secondary mr-2 dropbtn"
-                    key={prof}
-                  >
-                    {prof}{" "}
-                  </span>
-                ))}
-              </p>
-              <div class="dropdown-content">
-                <p>Comment goes here</p>
-              </div>
-            </div>
+            <p>
+              Available Professors:{" "}
+              {course.lecturer.map((prof) => (
+                <span className="badge badge-secondary mr-2 dropbtn" key={prof}>
+                  {prof}{" "}
+                </span>
+              ))}
+            </p>
           )}
           <div className="form-inline mb-2">
             <Button
