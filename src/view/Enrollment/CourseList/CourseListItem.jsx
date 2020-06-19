@@ -100,7 +100,7 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
             >
               {isLoading ? "Enrolling..." : isEnrolled ? "Enrolled" : "Enroll"}
             </Button>
-            {!isEnrolled && (
+            {!isEnrolled && enrolledCourses && (
               <SwapCourseView
                 course={course}
                 enrolledCourses={enrolledCourses}
