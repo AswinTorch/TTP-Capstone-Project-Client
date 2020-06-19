@@ -63,7 +63,7 @@ export const fetchProfessorReviewsThunk = (professorName) => async (
 ) => {
   try {
     const response = await axios.get(
-      `/api/professor/getComments/${professorName}`
+      `/api/professors/getComments/?professorName=${professorName}`
     );
     const reviews = response.data;
     dispatch(fetchProfessorReviews(reviews));

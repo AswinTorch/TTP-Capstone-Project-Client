@@ -79,7 +79,7 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
             <p>
               Available Professors:{" "}
               {course.lecturer.map((prof) => (
-                <ProfessorView prof={prof} />
+                <ProfessorView prof={prof} key={prof} />
               ))}
             </p>
           ) : (
