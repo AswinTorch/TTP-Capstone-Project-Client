@@ -11,14 +11,48 @@ const FinanceDetailsItem = ({ transaction }) =>
 {
     const action = transaction.action;
     const date = transaction.date;
-    const course = transaction.package;
+    const transactionPkg = transaction.package;
 
-    const calculateTransactionAmt = (action, course) =>
+    const getCourseInfo = (transactionPkg) =>
+    {
+        if(transactionPkg.constructor === Object) 
+        {
+            return (`${transactionPkg.course_identifier} ${transactionPkg.course_number}`);
+        }
+        
+        if(transactionPkg.length === 2)
+        {
+            let course1 = transactionPkg[0];
+            let course2 = transactionPkg[1];
+
+            let prevCourse = `${course1.course_identifier} ${course1.course_number}`;
+            let newCourse = `${course2.course_identifier} ${course2.course_number}`;
+
+            return `${prevCourse} to ${newCourse}`;
+        }
+        return "N/A";
+    }
+
+    const calculateTransactionAmt = (action, transactionPkg) =>
     {
         let amount = 0; 
         let symbol = "";
 
-        amount = parseInt(course.units) * 150;
+        if(transactionPkg.constructor === Object)
+        {
+            amount = parseInt(transactionPkg.units) * 150;
+        }
+        
+        if(transactionPkg.length === 2)
+        {
+            let course1 = transactionPkg[0];
+            let course2 = transactionPkg[1];
+            let course1Cost = parseInt(course1.units) * 150;
+            let course2Cost = parseInt(course2.units) * 150;
+
+            amount =  course1Cost - course2Cost;
+            if(amount > 0) symbol = "+";
+        }
 
         switch(action)
         {
@@ -36,10 +70,10 @@ const FinanceDetailsItem = ({ transaction }) =>
 
     return (
         <tr>
-            <td>{course.course_identifier} {course.course_number}</td>
+            <td>{getCourseInfo(transactionPkg)}</td>
             <td>{action}</td>
             <td>{date}</td>
-            <td>{calculateTransactionAmt(action, course)}</td>
+            <td>{calculateTransactionAmt(action, transactionPkg)}</td>
         </tr>
     );
 }

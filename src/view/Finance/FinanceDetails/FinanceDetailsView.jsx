@@ -31,13 +31,13 @@ const FinanceDetailsView = (props) =>
                     props.student.transaction_history.map((transaction) => (
                         <FinanceDetailsItem
                             transaction={transaction}
-                            key={transaction.package.course_name}
+                            key={transaction.date}
                         />
                     ))
                     ) : (
-                        <p className="pl-4 pt-3 pb-2">
-                            No transaction history.
-                        </p>
+                        <tr className="pl-4 pt-3 pb-2">
+                            <td colSpan="4">No transaction history.</td>
+                        </tr>
                     )}
                 </tbody>
             </Table>
