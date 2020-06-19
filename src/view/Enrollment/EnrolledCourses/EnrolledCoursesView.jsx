@@ -29,19 +29,9 @@ const EnrolledCoursesView = (props) => {
               ))
             ) : (
               // Spinner shows if data isn't fetched or doesn't exist
-              <div className="text-center">
-                <Spinner
-                  animation="grow"
-                  variant="secondary"
-                  className="mr-2"
-                />
-                <Spinner
-                  animation="grow"
-                  variant="secondary"
-                  className="mr-2"
-                />
-                <Spinner animation="grow" variant="secondary" className="" />
-              </div>
+              <p className="pl-4 pt-3 pb-2">
+                You're not enrolled in any courses.
+              </p>
             )}
           </div>
         </ul>
