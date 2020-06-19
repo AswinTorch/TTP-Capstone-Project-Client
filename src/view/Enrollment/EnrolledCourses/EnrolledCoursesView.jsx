@@ -16,9 +16,9 @@ const EnrolledCoursesView = (props) => {
       <div className="">
         <ul className="list-group rounded">
           <div>
-            {props.student.enrolled_courses ? (
+            {props.student.enrolled_courses &&
+            props.student.enrolled_courses.length !== 0 ? (
               // Shows fetched data if it exists
-
               props.student.enrolled_courses.map((course) => (
                 <EnrolledCourseItem
                   course={course}
