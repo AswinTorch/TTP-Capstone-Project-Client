@@ -35,8 +35,8 @@ class CourseListContainer extends Component {
   }
 
   render() {
-    // Filtering by course name
-    // Add filter by prof name
+    // Filtering by course id + num
+    // Add filter by prof name, course name
     const filteredCourses = this.props.courses.filter((course) => {
       const courseName = (
         course.course_identifier +
@@ -44,7 +44,12 @@ class CourseListContainer extends Component {
         course.course_number
       ).toLowerCase();
       // Add filter by close/open when filter is selected :
-      return courseName.indexOf(this.state.searchString.toLowerCase()) !== -1;
+      return (
+        courseName.indexOf(this.state.searchString.toLowerCase()) !== -1 ||
+        course.course_name
+          .toLowerCase()
+          .indexOf(this.state.searchString.toLowerCase()) !== -1
+      );
     });
 
     return (
