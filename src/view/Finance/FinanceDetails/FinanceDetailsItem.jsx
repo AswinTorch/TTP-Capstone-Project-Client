@@ -64,7 +64,7 @@ const FinanceDetailsItem = ({ transaction }) =>
             default: break;
         }
 
-        return symbol + amount;
+        return `${symbol}$${amount}`;
     }
 
     return (
