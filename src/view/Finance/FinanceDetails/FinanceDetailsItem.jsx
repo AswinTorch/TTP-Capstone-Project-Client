@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import firebase from "../../../firebase";
+import React from "react";
 
 /**
  * Represents a single list item in FinanceDetailsView
