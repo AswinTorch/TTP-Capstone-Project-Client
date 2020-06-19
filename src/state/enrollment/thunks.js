@@ -57,7 +57,24 @@ export const dropCourseThunk = (id, course) => async (dispatch) => {
   }
 };
 
-// Thunk to remove selected course from student's enrolled courses
+// Thunk to swap courses
+export const swapCoursesThunk = (id, previousCourse, newCourse) => async (
+  dispatch
+) => {
+  try {
+    await axios.put(`/api/students/${id}/swapcourses`, [
+      previousCourse,
+      newCourse,
+    ]);
+
+    dispatch(dropCourse(previousCourse));
+    dispatch(addCourse(newCourse));
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// Thunk to fetch professor's reviews based on their name
 export const fetchProfessorReviewsThunk = (professorName) => async (
   dispatch
 ) => {

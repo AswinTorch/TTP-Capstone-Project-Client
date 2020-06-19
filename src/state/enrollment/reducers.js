@@ -32,7 +32,10 @@ const reducer = (state = initialState, action) => {
       const updatedCourses = enrolledCourses.filter(
         (course) => !_.isEqual(course, action.payload)
       );
-      return { ...state, student: { enrolled_courses: updatedCourses } };
+      return {
+        ...state,
+        student: { enrolled_courses: updatedCourses },
+      };
     // SWAP GOES HERE
 
     default:
