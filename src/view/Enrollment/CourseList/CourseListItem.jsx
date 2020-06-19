@@ -27,14 +27,18 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
       }
     }
 
-    // Checks if current course is already in enrolled courses list of student
-    for (let enrolledCourse of enrolledCourses) {
-      if (_.isEqual(enrolledCourse, course)) {
-        setIsEnrolled(true);
-      }
-      else if(!_.isEqual(enrolledCourse, course))
-      {
-        setIsEnrolled(false);
+    if(enrolledCourses)
+    {
+      // Checks if current course is already in enrolled courses list of student
+      for (let enrolledCourse of enrolledCourses) {
+        if (_.isEqual(enrolledCourse, course)) {
+          setIsEnrolled(true);
+          break;
+        }
+        else if(!_.isEqual(enrolledCourse, course) && isEnrolled)
+        {
+          setIsEnrolled(false);
+        }
       }
     }
 
@@ -49,7 +53,7 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
 
   return (
     <Card>
-      <Accordion.Toggle as={Card.Body} variant="link" eventKey={index} className="btn btn-outline-dark">
+      <Accordion.Toggle as={Card.Body} variant="link" eventKey={index} className="btn btn-light">
         <div className="d-flex justify-content-between align-items-center">
           <span className="">
             {course.course_identifier} {course.course_number}:{" "}
@@ -71,14 +75,14 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
             <p>
               Available Professors:{" "}
               {course.lecturer.map((prof) => (
-                <span class="badge badge-secondary mr-2" key={prof}>
+                <span className="badge badge-secondary mr-2" key={prof}>
                   {prof}{" "}
                 </span>
               ))}
             </p>
           )}
           <Button
-            variant="outline-success"
+            variant={isLoading || isEnrolled ? "outline-danger" : "outline-success"}
             disabled={isLoading || isEnrolled}
             onClick={!isLoading && !isEnrolled ? handleClick : null}
           >
