@@ -27,16 +27,13 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
       }
     }
 
-    if(enrolledCourses)
-    {
+    if (enrolledCourses) {
       // Checks if current course is already in enrolled courses list of student
       for (let enrolledCourse of enrolledCourses) {
         if (_.isEqual(enrolledCourse, course)) {
           setIsEnrolled(true);
           break;
-        }
-        else if(!_.isEqual(enrolledCourse, course) && isEnrolled)
-        {
+        } else if (!_.isEqual(enrolledCourse, course) && isEnrolled) {
           setIsEnrolled(false);
         }
       }
@@ -48,12 +45,17 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
         setLoading(false);
       });
     }
-  }, [isLoading, addCourse, course, enrolledCourses]);
+  }, [isLoading, addCourse, course, enrolledCourses, isEnrolled]);
   const handleClick = () => setLoading(true);
 
   return (
     <Card>
-      <Accordion.Toggle as={Card.Body} variant="link" eventKey={index} className="btn btn-light">
+      <Accordion.Toggle
+        as={Card.Body}
+        variant="link"
+        eventKey={index}
+        className="btn btn-light"
+      >
         <div className="d-flex justify-content-between align-items-center">
           <span className="">
             {course.course_identifier} {course.course_number}:{" "}
@@ -72,22 +74,38 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
         <Card.Header className="border border-bottom-0 border-left-0 border-right-0">
           <p>{course.description}</p>
           {course.lecturer && (
-            <p>
-              Available Professors:{" "}
-              {course.lecturer.map((prof) => (
-                <span className="badge badge-secondary mr-2" key={prof}>
-                  {prof}{" "}
-                </span>
-              ))}
-            </p>
+            <div class="dropdown">
+              <p>
+                Available Professors:{" "}
+                {course.lecturer.map((prof) => (
+                  <span
+                    className="badge badge-secondary mr-2 dropbtn"
+                    key={prof}
+                  >
+                    {prof}{" "}
+                  </span>
+                ))}
+              </p>
+              <div class="dropdown-content">
+                <p>Comment goes here</p>
+              </div>
+            </div>
           )}
-          <Button
-            variant={isLoading || isEnrolled ? "outline-danger" : "outline-success"}
-            disabled={isLoading || isEnrolled}
-            onClick={!isLoading && !isEnrolled ? handleClick : null}
-          >
-            {isLoading ? "Enrolling..." : "Enroll"}
-          </Button>
+          <div className="form-inline mb-2">
+            <Button
+              variant={
+                isLoading || isEnrolled ? "outline-danger" : "outline-success"
+              }
+              disabled={isLoading || isEnrolled}
+              onClick={!isLoading && !isEnrolled ? handleClick : null}
+              className="mr-2"
+            >
+              {isLoading ? "Enrolling..." : isEnrolled ? "Enrolled" : "Enroll"}
+            </Button>
+            <Button variant="outline-info" onClick={null}>
+              Swap
+            </Button>
+          </div>
         </Card.Header>
       </Accordion.Collapse>
     </Card>
