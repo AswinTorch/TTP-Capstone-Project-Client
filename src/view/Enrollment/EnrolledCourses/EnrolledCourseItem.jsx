@@ -11,7 +11,6 @@ import firebase from "../../../firebase";
  */
 const EnrolledCourseItem = ({ course, dropCourse }) => {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -23,9 +22,7 @@ const EnrolledCourseItem = ({ course, dropCourse }) => {
   return (
     <div>
       <li
-        className="list-group-item list-group-item-action btn btn-outline-warning justify-content-between align-items-center d-flex rounded"
-        data-toggle="modal"
-        data-target="#cisc3440-modal"
+        className="list-group-item list-group-item-action btn justify-content-between align-items-center d-flex rounded py-4 border-bottom-0"
         onClick={handleShow}
       >
         {course.course_identifier} {course.course_number}: {course.course_name}
@@ -46,7 +43,7 @@ const EnrolledCourseItem = ({ course, dropCourse }) => {
         </Modal.Header>
         <Modal.Body>
           <p>{course.description}</p>
-          {course.lecturer && (
+          {course.lecturer ? (
             <p>
               Available Professors:{" "}
               {course.lecturer.map((prof) => (
@@ -55,12 +52,14 @@ const EnrolledCourseItem = ({ course, dropCourse }) => {
                 </span>
               ))}
             </p>
+          ) : (
+            <p>
+              Available Professors:{" "}
+              <span className="badge badge-secondary mr-2">Staff</span>
+            </p>
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="info" onClick={handleClose}>
-            Swap
-          </Button>
           <Button variant="danger" onClick={handleDrop}>
             Drop
           </Button>

@@ -23,8 +23,8 @@ const UserToggleMenu = (props) => {
 
       <Dropdown.Menu as={props.menuType} className="shadow border-0">
         <Dropdown.Item eventKey="1" className="text-muted">
-          <i class="fas fa-user mr-3"></i>
-          <span class="">Profile</span>
+          <i className="fas fa-user mr-3"></i>
+          <span className="">Profile</span>
         </Dropdown.Item>
         <Dropdown.Divider />
         <Dropdown.Item
@@ -32,8 +32,8 @@ const UserToggleMenu = (props) => {
           className="text-muted"
           onClick={() => firebase.auth().signOut()}
         >
-          <i class="fas fa-sign-out-alt mr-3"></i>
-          <span class="">Logout</span>
+          <i className="fas fa-sign-out-alt mr-3"></i>
+          <span className="">Logout</span>
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
