@@ -21,10 +21,10 @@ const ProfessorView = ({ prof }) => {
           <Modal.Title>Reviews for {prof}</Modal.Title>
         </Modal.Header>
         <Modal.Body className="p-0">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((comment) => {
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((review) => {
             return (
               <li className="list-group-item list-group-item-action justify-content-between align-items-center d-flex rounded py-4 border-0">
-                {comment}
+                {review}
               </li>
             );
           })}

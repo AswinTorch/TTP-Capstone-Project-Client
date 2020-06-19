@@ -28,3 +28,13 @@ export const dropCourse = (removedCourse) => {
     payload: removedCourse,
   };
 };
+
+// NEEDS TO BE FINISHED
+export const swapCourse = () => {};
+
+export const fetch = (reviews) => {
+  return {
+    type: types.FETCH_PROFESSOR_REVIEWS,
+    payload: reviews,
+  };
+};
