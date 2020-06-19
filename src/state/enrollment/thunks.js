@@ -5,6 +5,7 @@ import {
   fetchStudent,
   addCourse,
   dropCourse,
+  fetchProfessorReviews,
 } from "./actions";
 
 // THUNKS
@@ -57,7 +58,9 @@ export const dropCourseThunk = (id, course) => async (dispatch) => {
 };
 
 // Thunk to remove selected course from student's enrolled courses
-export const fetchProfessorReviews = (professorName) => async (dispatch) => {
+export const fetchProfessorReviewsThunk = (professorName) => async (
+  dispatch
+) => {
   try {
     const response = await axios.get(
       `/api/professor/getComments/${professorName}`
