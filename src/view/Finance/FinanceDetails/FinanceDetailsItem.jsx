@@ -9,18 +9,38 @@ import firebase from "../../../firebase";
  */
 const FinanceDetailsItem = ({ transaction }) =>
 {
-    const [show, setShow] = useState(false);
-    const handleShow = () => setShow(true);
+    const action = transaction.action;
+    const date = transaction.date;
+    const course = transaction.package;
+
+    const calculateTransactionAmt = (action, course) =>
+    {
+        let amount = 0; 
+        let symbol = "";
+
+        amount = parseInt(course.units) * 150;
+
+        switch(action)
+        {
+            case "ADD_COURSE":
+                symbol = "-";
+                break;
+            case "DROP_COURSE":
+                symbol = "+";
+                break;
+            default: break;
+        }
+
+        return symbol + amount;
+    }
 
     return (
-        <div>
-            <li
-                className="list-group-item list-group-item-action btn justify-content-between align-items-center d-flex rounded py-4 border-bottom-0"
-                onClick={handleShow}
-            >
-                Placeholder
-            </li>
-        </div>
+        <tr>
+            <td>{course.course_identifier} {course.course_number}</td>
+            <td>{action}</td>
+            <td>{date}</td>
+            <td>{calculateTransactionAmt(action, course)}</td>
+        </tr>
     );
 }
 
