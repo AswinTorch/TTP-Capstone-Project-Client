@@ -57,7 +57,10 @@ class CourseListContainer extends Component {
         {/* Search Bar and Filter */}
         <div className="mt-4 border-0">
           <div className="pt-4 pb-2">
-            <form className="form-inline my-2 my-lg-0">
+            <form 
+              className="form-inline my-2 my-lg-0"
+              onSubmit={event => event.preventDefault()}
+            >
               <input
                 className="form-control mr-sm-2"
                 type="search"
