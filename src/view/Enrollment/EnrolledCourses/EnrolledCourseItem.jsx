@@ -11,7 +11,6 @@ import firebase from "../../../firebase";
  */
 const EnrolledCourseItem = ({ course, dropCourse }) => {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 

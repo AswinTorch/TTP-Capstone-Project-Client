@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import firebase from "../../../firebase";
 import _ from "lodash";
+import SwapCourseView from "./SwapCourseView";
 
 /**
  * Represents a single list item in CourseListView
@@ -99,9 +100,12 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
             >
               {isLoading ? "Enrolling..." : isEnrolled ? "Enrolled" : "Enroll"}
             </Button>
-            <Button variant="outline-info" onClick={null}>
-              Swap
-            </Button>
+            {!isEnrolled && (
+              <SwapCourseView
+                course={course}
+                enrolledCourses={enrolledCourses}
+              />
+            )}
           </div>
         </Card.Header>
       </Accordion.Collapse>
