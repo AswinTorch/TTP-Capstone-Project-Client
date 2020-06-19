@@ -69,12 +69,12 @@ export const swapCoursesThunk = (id, previousCourse, newCourse) => async (
   dispatch
 ) => {
   try {
-    await axios.put(`/api/students/${id}/swapcourses`, [
-      previousCourse,
-      newCourse,
-    ]);
+    const response = await axios.put(`/api/students/${id}/swapcourses`, [previousCourse, newCourse]);
+    const courses = response.data.courses;
+    const transaction = response.data.transaction;
 
-    dispatch(swapCourses(previousCourse, newCourse));
+    dispatch(swapCourses(courses[0], courses[1]));
+    dispatch(addTransaction(transaction));
   } catch (error) {
     console.error(error);
   }
