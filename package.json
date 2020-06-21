@@ -33,7 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3001",
+  "proxy": "https://stufirst.herokuapp.com/",
   "eslintConfig": {
     "extends": "react-app"
   },
