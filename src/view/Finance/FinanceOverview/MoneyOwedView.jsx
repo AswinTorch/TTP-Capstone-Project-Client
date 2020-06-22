@@ -10,7 +10,9 @@ const MoneyOwedView = ({ moneyOwed }) => {
               <div className="text-xs font-weight-bold text-danger text-uppercase mb-1">
                 Money Owed
               </div>
-              <h6 className="card-subtitle mt-3">${moneyOwed}</h6>
+              <h6 className="card-subtitle mt-3">
+                ${Number(moneyOwed).toFixed(2)}
+              </h6>
             </div>
             <div className="col-auto">
               <i className="fas fa-dollar-sign fa-2x text-light"></i>

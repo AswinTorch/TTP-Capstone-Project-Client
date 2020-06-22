@@ -5,7 +5,7 @@ import LoginSplashImage from "./assets/undraw_authentication_fsn5.svg";
 
 const LoginView = (props) => {
   return (
-    <div className="container text-center pt-4 d-flex flex-column h-100">
+    <div className="container text-center pt-4 d-flex flex-column 100vh">
       <div className="row justify-content-center">
         <div className="col-xl-10 col-lg-12 col-md-9">
           <div className="card o-hidden border-0 shadow-lg my-5">
@@ -18,7 +18,7 @@ const LoginView = (props) => {
                     style={{ height: 400 }}
                   />
                 </div>
-                <div className="col-lg-6">
+                <div className="col-lg-6 d-flex justify-content-center align-items-center">
                   <div className="p-5">
                     <div className="text-center">
                       <span className="h1 text-black mb-4">
@@ -37,13 +37,11 @@ const LoginView = (props) => {
                       <h1 className="h4 text-gray-900 my-4">Welcome Back!</h1>
                     </div>
                     <form className="user">
-                      <hr></hr>
                       <StyledFirebaseAuth
                         uiConfig={props.uiConfig}
                         firebaseAuth={firebase.auth()}
                       />
                     </form>
-                    <hr></hr>
                   </div>
                 </div>
               </div>

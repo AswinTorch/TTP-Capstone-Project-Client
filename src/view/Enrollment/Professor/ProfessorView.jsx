@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProfessorReviewsThunk } from "../../../state/enrollment/thunks";
+import "../Professor/ProfessorView.css";
 
 const ProfessorView = (props) => {
   // State to track modal open/close button click
@@ -28,9 +29,16 @@ const ProfessorView = (props) => {
         {props.prof}{" "}
       </span>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        dialogClassName="modal-90w"
+        aria-labelledby="custom-modal-styling-title"
+      >
         <Modal.Header closeButton>
-          <Modal.Title>Reviews for {props.prof}</Modal.Title>
+          <Modal.Title id="custom-modal-styling-title">
+            Reviews for {props.prof}
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body className="p-0">
           {reviews.length !== 0 ? (

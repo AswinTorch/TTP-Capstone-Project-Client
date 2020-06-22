@@ -71,7 +71,7 @@ const NotificationsToggleMenu = (props) => {
             <div>
               <div className="small text-muted">Yesterday</div>
               <span className="font-weight-bold">
-                Breaking news: college is a scam.
+                You have received no money in scholarships.
               </span>
             </div>
           </div>
