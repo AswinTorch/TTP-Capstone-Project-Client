@@ -73,7 +73,7 @@ class App extends Component {
      * display the login page
      */
     return (
-      <div className="" style={{ backgroundColor: "#F8F9FC" }}>
+      <div className="" style={{ backgroundColor: "#F8F9FC", height: "100vh" }}>
         {this.state.isSignedIn ? (
           <>
             <div className="row">

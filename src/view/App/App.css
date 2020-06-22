@@ -1,3 +1,7 @@
 .border-3 {
   border-width: 3px !important;
 }
+html,
+body {
+  height: 100%;
+}
