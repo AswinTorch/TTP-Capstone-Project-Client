@@ -1,3 +1,12 @@
+# StudentFirst Client Application
+An attempt to make a responsive, student-oriented application similar to the CUNYFirst system, with emphasis on ease of use and a modern UI.
+
+This application utilizes our StudentFirst RESTful API, which is deployed using our [StudentFirst Server Application](https://github.com/AswinTorch/TTP-Capstone-Project-Server)
+
+![](/public/studentfirst-login.png)
+
+![](/public/studentfirst-dashboard.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
