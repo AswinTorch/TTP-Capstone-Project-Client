@@ -13,11 +13,12 @@ import {
 import { addTransaction } from "../finance/actions";
 
 // THUNKS
+const SERVER_URL = "https://stunyfirst.herokuapp.com";
 
 // Thunk to fetch all courses in the database
 export const fetchAllCoursesThunk = () => (dispatch) => {
   return axios
-    .get("/api/courses/?limit=15")
+    .get(`${SERVER_URL}/api/courses/?limit=15`)
     .then((res) => res.data.data)
     .then((courses) => {
       dispatch(fetchAllCourses(courses));
@@ -28,7 +29,7 @@ export const fetchAllCoursesThunk = () => (dispatch) => {
 // Thunk to fetch the current student model of signed in user
 export const fetchStudentThunk = (id) => async (dispatch) => {
   try {
-    const response = await axios.get(`/api/students/${id}`);
+    const response = await axios.get(`${SERVER_URL}/api/students/${id}`);
     const student = response.data;
     dispatch(fetchStudent(student));
   } catch (error) {
@@ -39,7 +40,10 @@ export const fetchStudentThunk = (id) => async (dispatch) => {
 // Thunk to add course selected from course list to student's enrolled courses
 export const addCourseThunk = (id, course) => async (dispatch) => {
   try {
-    const response = await axios.put(`/api/students/${id}/addcourse`, course);
+    const response = await axios.put(
+      `${SERVER_URL}/api/students/${id}/addcourse`,
+      course
+    );
     const addedCourse = response.data.course;
     const transaction = response.data.transaction;
 
@@ -54,7 +58,7 @@ export const addCourseThunk = (id, course) => async (dispatch) => {
 export const dropCourseThunk = (id, course) => async (dispatch) => {
   try {
     const response = await axios.put(
-      `/api/students/${id}/removecourse`,
+      `${SERVER_URL}/api/students/${id}/removecourse`,
       course
     );
     const removedCourse = response.data.course;
@@ -72,10 +76,10 @@ export const swapCoursesThunk = (id, previousCourse, newCourse) => async (
   dispatch
 ) => {
   try {
-    const response = await axios.put(`/api/students/${id}/swapcourses`, [
-      previousCourse,
-      newCourse,
-    ]);
+    const response = await axios.put(
+      `${SERVER_URL}/api/students/${id}/swapcourses`,
+      [previousCourse, newCourse]
+    );
     const courses = response.data.courses;
     const transaction = response.data.transaction;
 
@@ -89,7 +93,7 @@ export const swapCoursesThunk = (id, previousCourse, newCourse) => async (
 export const getSearchThunk = (searchString) => async (dispatch) => {
   try {
     const response = await axios.get(
-      `/api/courses/search/?search_string=${searchString}`
+      `${SERVER_URL}/api/courses/search/?search_string=${searchString}`
     );
     const courseList = response.data;
     dispatch(searchCourse(courseList));
@@ -104,7 +108,7 @@ export const fetchProfessorReviewsThunk = (professorName) => async (
 ) => {
   try {
     const response = await axios.get(
-      `/api/professors/getComments/?professorName=${professorName}`
+      `${SERVER_URL}/api/professors/getComments/?professorName=${professorName}`
     );
     const reviews = response.data;
     dispatch(fetchProfessorReviews(reviews));

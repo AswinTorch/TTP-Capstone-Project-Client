@@ -11,6 +11,7 @@
     "bootstrap": "^4.5.0",
     "dotenv": "^8.2.0",
     "firebase": "^7.15.1",
+    "firebase-tools": "^8.4.3",
     "jquery": "^3.5.1",
     "lodash": "^4.17.15",
     "react": "^16.13.1",
@@ -33,7 +34,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://stunyfirst.herokuapp.com",
   "eslintConfig": {
     "extends": "react-app"
   },

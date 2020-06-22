@@ -8,6 +8,7 @@ import LoginView from "../Login/LoginView";
 import NavbarView from "../Navbar/NavbarView";
 import RoutesContainer from "../Routes/RoutesContainer";
 import SideMenuContainer from "../SideMenu/SideMenuContainer";
+const SERVER_URL = "https://stunyfirst.herokuapp.com";
 
 class App extends Component {
   state = { isSignedIn: false };
@@ -47,7 +48,7 @@ class App extends Component {
 
         // Let's send a request to check if user exists
         axios
-          .get(`/api/students/${uid}`)
+          .get(`${SERVER_URL}/api/students/${uid}`)
           .then((res) => res.data)
           .catch((err) => {
             // User doesn't exist on database, let's make a new one
@@ -59,7 +60,7 @@ class App extends Component {
             let student = { uid, firstName, lastName, email };
 
             axios
-              .post("/api/students/", student)
+              .post(`${SERVER_URL}/api/students/`, student)
               .then((res) => res.data)
               .catch((err) => console.error(err));
           });
