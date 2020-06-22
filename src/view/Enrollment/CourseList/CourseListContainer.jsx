@@ -57,12 +57,12 @@ class CourseListContainer extends Component {
         {/* Search Bar and Filter */}
         <div className="mt-4 border-0">
           <div className="pt-4 pb-2">
-            <form 
+            <form
               className="form-inline my-2 my-lg-0"
-              onSubmit={event => event.preventDefault()}
+              onSubmit={(event) => event.preventDefault()}
             >
               <input
-                className="form-control mr-sm-2"
+                className="form-control mb-2 mr-sm-0"
                 type="search"
                 value={this.state.searchString}
                 onChange={this.handleChange}
@@ -70,7 +70,7 @@ class CourseListContainer extends Component {
                 aria-label="Search"
               />
 
-              <Dropdown>
+              <Dropdown className="mb-2">
                 {" "}
                 &emsp;
                 <Dropdown.Toggle variant="secondary" id="dropdown-basic">
