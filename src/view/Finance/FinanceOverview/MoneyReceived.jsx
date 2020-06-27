@@ -1,6 +1,6 @@
 import React from "react";
 
-const MoneyReceivedView = (props) => {
+const MoneyReceived = (props) => {
   return (
     <div className="col-md-3 col-sm-6">
       <div className="card shadow border-success border-3 border-bottom-0 border-top-0 border-right-0 pt-2 pb-2 mb-3">
@@ -22,4 +22,4 @@ const MoneyReceivedView = (props) => {
   );
 };
 
-export default MoneyReceivedView;
+export default MoneyReceived;
