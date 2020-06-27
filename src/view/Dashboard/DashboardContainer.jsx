@@ -1,8 +1,8 @@
 import React from "react";
-import DashboardView from "./DashboardView";
+import Dashboard from "./Dashboard";
 
 const DashboardContainer = () => {
-  return <DashboardView />;
+  return <Dashboard />;
 };
 
 export default DashboardContainer;
