@@ -1,8 +1,8 @@
 import React from "react";
-import SideMenuView from "./SideMenuView";
+import SideMenu from "./SideMenu";
 
 const SideMenuContainer = () => {
-  return <SideMenuView />;
+  return <SideMenu />;
 };
 
 export default SideMenuContainer;
