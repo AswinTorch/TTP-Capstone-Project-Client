@@ -1,10 +1,10 @@
 import React from "react";
 
-import EnrollmentView from "./EnrollmentView";
+import Enrollment from "./Enrollment";
 
 // Smart container for enrollment
 const EnrollmentContainer = () => {
-  return <EnrollmentView />;
+  return <Enrollment />;
 };
 
 // Export our store-connected container by default

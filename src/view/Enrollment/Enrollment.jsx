@@ -3,7 +3,7 @@ import EnrolledCoursesContainer from "./EnrolledCourses/EnrolledCoursesContainer
 
 import CourseListContainer from "./CourseList/CourseListContainer";
 
-const EnrollmentView = (props) => {
+const Enrollment = (props) => {
   return (
     <div className="container-fluid pt-3 px-4 pb-4">
       <div>
@@ -19,4 +19,4 @@ const EnrollmentView = (props) => {
   );
 };
 
-export default EnrollmentView;
+export default Enrollment;
