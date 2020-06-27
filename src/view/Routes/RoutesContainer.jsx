@@ -1,9 +1,9 @@
 import React from "react";
 
-import RoutesView from "./RoutesView";
+import Routes from "./Routes";
 
 const RoutesContainer = () => {
-  return <RoutesView />;
+  return <Routes />;
 };
 
 export default RoutesContainer;

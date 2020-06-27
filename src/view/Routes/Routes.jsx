@@ -5,7 +5,7 @@ import Dashboard from "../Dashboard/Dashboard";
 import Enrollment from "../Enrollment/Enrollment";
 import Finance from "../Finance/Finance";
 
-const RoutesView = () => {
+const Routes = () => {
   return (
     <Switch>
       <Route exact path="/" component={Dashboard} />
@@ -16,4 +16,4 @@ const RoutesView = () => {
   );
 };
 
-export default RoutesView;
+export default Routes;
