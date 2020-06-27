@@ -1,8 +1,8 @@
 import React from "react";
 import "../App/App.css";
 import EnrolledCoursesContainer from "../Enrollment/EnrolledCourses/EnrolledCoursesContainer";
-import MoneyReceivedView from "../Finance/FinanceOverview/MoneyReceivedView";
-import MoneyOwedContainer from "../Finance/FinanceOverview/MoneyOwedContainer";
+import MoneyReceived from "../Finance/FinanceOverview/MoneyReceived";
+import MoneyOwed from "../Finance/FinanceOverview/MoneyOwed";
 
 const Dashboard = (props) => {
   return (
@@ -19,8 +19,8 @@ const Dashboard = (props) => {
       </div>
 
       <div className="row">
-        <MoneyReceivedView />
-        <MoneyOwedContainer />
+        <MoneyReceived />
+        <MoneyOwed />
       </div>
 
       <EnrolledCoursesContainer />
