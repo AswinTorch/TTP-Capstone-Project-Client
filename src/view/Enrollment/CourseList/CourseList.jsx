@@ -14,7 +14,7 @@ import Spinner from "react-bootstrap/Spinner";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-import SwapCourseView from "./SwapCourseView";
+import SwapCourse from "./SwapCourse";
 import ProfessorView from "../Professor/ProfessorView.jsx";
 
 /**
@@ -235,7 +235,7 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
               {isLoading ? "Enrolling..." : isEnrolled ? "Enrolled" : "Enroll"}
             </Button>
             {!isEnrolled && enrolledCourses && enrolledCourses.length !== 0 && (
-              <SwapCourseView
+              <SwapCourse
                 course={course}
                 enrolledCourses={enrolledCourses}
               />

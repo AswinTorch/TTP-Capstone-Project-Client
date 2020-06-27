@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { swapCoursesThunk } from "../../../state/enrollment/thunks";
 import firebase from "../../../firebase";
 
-const SwapCourseView = ({ course, enrolledCourses }) => {
+const SwapCourse = ({ course, enrolledCourses }) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -56,4 +56,4 @@ const SwapCourseView = ({ course, enrolledCourses }) => {
   );
 };
 
-export default SwapCourseView;
+export default SwapCourse;
