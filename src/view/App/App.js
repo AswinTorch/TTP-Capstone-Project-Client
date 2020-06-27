@@ -7,7 +7,7 @@ import axios from "axios";
 import LoginView from "../Login/LoginView";
 import NavbarView from "../Navbar/NavbarView";
 import RoutesContainer from "../Routes/RoutesContainer";
-import SideMenuContainer from "../SideMenu/SideMenuContainer";
+import SideMenu from "../SideMenu/SideMenu";
 
 const App = (props) => {
   const [isSignedIn, setIsSignedIn] = useState(false);
@@ -76,7 +76,7 @@ const App = (props) => {
       {isSignedIn ? (
         <>
           <div className="row">
-            <SideMenuContainer />
+            <SideMenu />
             <div className="container-fluid col-10 pl-0">
               <NavbarView
                 displayName={firebase.auth().currentUser.displayName}
