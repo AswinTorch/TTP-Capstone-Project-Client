@@ -15,7 +15,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 import SwapCourse from "./SwapCourse";
-import ProfessorView from "../Professor/ProfessorView.jsx";
+import Professor from "../Professor/Professor.jsx";
 
 /**
  * Smart container for course list component
@@ -214,7 +214,7 @@ const CourseListItem = ({ course, index, addCourse, enrolledCourses }) => {
             <p>
               Available Professors:{" "}
               {course.lecturer.map((prof) => (
-                <ProfessorView prof={prof} key={prof} />
+                <Professor prof={prof} key={prof} />
               ))}
             </p>
           ) : (
