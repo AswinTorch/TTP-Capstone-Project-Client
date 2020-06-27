@@ -3,7 +3,7 @@ import firebase from "../../firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import LoginSplashImage from "./assets/undraw_authentication_fsn5.svg";
 
-const LoginView = (props) => {
+const Login = (props) => {
   return (
     <div className="container text-center pt-4 d-flex flex-column 100vh">
       <div className="row justify-content-center">
@@ -58,4 +58,4 @@ const LoginView = (props) => {
   );
 };
 
-export default LoginView;
+export default Login;

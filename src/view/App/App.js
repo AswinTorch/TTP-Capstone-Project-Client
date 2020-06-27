@@ -4,7 +4,7 @@ import "./App.css";
 import firebase from "../../firebase";
 import axios from "axios";
 
-import LoginView from "../Login/LoginView";
+import Login from "../Login/Login";
 import NavbarView from "../Navbar/NavbarView";
 import RoutesContainer from "../Routes/RoutesContainer";
 import SideMenu from "../SideMenu/SideMenu";
@@ -88,7 +88,7 @@ const App = (props) => {
         </>
       ) : (
         <>
-          <LoginView uiConfig={uiConfig} />
+          <Login uiConfig={uiConfig} />
         </>
       )}
     </div>
