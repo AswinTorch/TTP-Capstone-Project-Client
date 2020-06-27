@@ -1,7 +1,7 @@
 import React from "react";
-import EnrolledCoursesContainer from "./EnrolledCourses/EnrolledCoursesContainer";
+import EnrolledCourses from "./EnrolledCourses/EnrolledCourses";
 
-import CourseListContainer from "./CourseList/CourseListContainer";
+import CourseList from "./CourseList/CourseList";
 
 const Enrollment = (props) => {
   return (
@@ -11,10 +11,10 @@ const Enrollment = (props) => {
       </div>
 
       {/* Enrolled Courses List */}
-      <EnrolledCoursesContainer />
+      <EnrolledCourses />
 
       {/* Courses List */}
-      <CourseListContainer />
+      <CourseList />
     </div>
   );
 };

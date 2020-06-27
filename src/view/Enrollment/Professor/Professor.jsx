@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProfessorReviewsThunk } from "../../../state/enrollment/thunks";
-import "../Professor/ProfessorView.css";
+import "../Professor/Professor.css";
 
-const ProfessorView = (props) => {
+const Professor = (props) => {
   // State to track modal open/close button click
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -63,4 +63,4 @@ const ProfessorView = (props) => {
   );
 };
 
-export default ProfessorView;
+export default Professor;
