@@ -36,8 +36,7 @@ const MoneyOwed = (props) => {
   return <MoneyOwedView moneyOwed={calculateMoneyOwed(student)} />;
 };
 
-const MoneyOwedView = ({ moneyOwed }) =>
-{
+const MoneyOwedView = ({ moneyOwed }) => {
   return (
     <div className="col-md-3 col-sm-6">
       <div className="card shadow border-danger border-3 border-bottom-0 border-top-0 border-right-0 pt-2 pb-2 mb-3">
@@ -59,7 +58,7 @@ const MoneyOwedView = ({ moneyOwed }) =>
       </div>
     </div>
   );
-}
+};
 
 // Export our store-connected container by default
 export default MoneyOwed;
