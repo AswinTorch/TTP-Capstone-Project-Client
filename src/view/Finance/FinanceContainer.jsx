@@ -1,10 +1,10 @@
 import React from "react";
 
-import FinanceView from "./FinanceView";
+import Finance from "./Finance";
 
 // Smart container for finance
 const FinanceContainer = () => {
-  return <FinanceView />;
+  return <Finance />;
 };
 
 // Export our store-connected container by default
