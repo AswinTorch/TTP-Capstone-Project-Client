@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
  * Passes props down to:
  * - MoneyOwedView
  */
-const MoneyOwedContainer = (props) => {
+const MoneyOwed = (props) => {
   const student = useSelector((state) => state.enrollment.student);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -38,4 +38,4 @@ const MoneyOwedContainer = (props) => {
 };
 
 // Export our store-connected container by default
-export default MoneyOwedContainer;
+export default MoneyOwed;
