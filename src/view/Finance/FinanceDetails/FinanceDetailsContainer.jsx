@@ -1,51 +1,26 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-
+import React, { useEffect } from "react";
 import { fetchStudentThunk } from "../../../state/enrollment/thunks";
 import firebase from "../../../firebase";
-
+import { useDispatch, useSelector } from "react-redux";
 import FinanceDetailsView from "./FinanceDetailsView";
 
 /**
  * Smart container for financial details component
- * 
+ *
  * Fetches user data and displays details on cost of courses
  * Passes props down to:
  * - FinanceDetailsView
  */
-class FinanceDetailsContainer extends Component
-{
-    async componentDidMount()
-    {
-        const id = firebase.auth().currentUser.uid;
-        await this.props.fetchStudent(id);
-    }
+const FinanceDetailsContainer = (props) => {
+  const student = useSelector((state) => state.enrollment.student);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const id = firebase.auth().currentUser.uid;
+    dispatch(fetchStudentThunk(id));
+  }, [dispatch]);
 
-    render()
-    {
-        return (
-            <FinanceDetailsView 
-                student={this.props.student}
-            />
-        );
-    }
-}
-
-// Map state to props
-const mapState = (state) =>
-{
-    return {
-        student: state.enrollment.student
-    };
-}
-
-// Map dispatch to props
-const mapDispatch = (dispatch) =>
-{
-    return {
-        fetchStudent: (id) => dispatch(fetchStudentThunk(id))
-    };
-}
+  return <FinanceDetailsView student={student} />;
+};
 
 // Export our store-connected container by default
-export default connect(mapState, mapDispatch)(FinanceDetailsContainer);
+export default FinanceDetailsContainer;

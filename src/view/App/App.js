@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 import firebase from "../../firebase";
@@ -9,10 +9,10 @@ import NavbarView from "../Navbar/NavbarView";
 import RoutesContainer from "../Routes/RoutesContainer";
 import SideMenuContainer from "../SideMenu/SideMenuContainer";
 
-class App extends Component {
-  state = { isSignedIn: false };
+const App = (props) => {
+  const [isSignedIn, setIsSignedIn] = useState(false);
 
-  uiConfig = {
+  const uiConfig = {
     // Shows pop up window for signing in
     signInFlow: "popup",
     signInOptions: [
@@ -28,9 +28,9 @@ class App extends Component {
    * Listen for authentication on mount, then send a POST request to register the new user,
    * or connect to an existing one
    */
-  componentDidMount() {
-    this.authListener();
-  }
+  useEffect(() => {
+    authListener();
+  });
 
   /**
    * Check if user has been authenticated, then set their signed in state to correspond with the
@@ -38,9 +38,9 @@ class App extends Component {
    *
    * Afterwards, send a POST request to the backend to register the new user or connect to an existing one
    */
-  authListener() {
+  const authListener = () => {
     firebase.auth().onAuthStateChanged((user) => {
-      this.setState({ isSignedIn: !!user });
+      setIsSignedIn(!!user);
 
       if (user) {
         const uid = user.uid;
@@ -65,36 +65,34 @@ class App extends Component {
           });
       }
     });
-  }
+  };
 
-  render() {
-    /**
-     * Display the dashboard only if user is signed in, otherwise
-     * display the login page
-     */
-    return (
-      <div className="" style={{ backgroundColor: "#F8F9FC", height: "100vh" }}>
-        {this.state.isSignedIn ? (
-          <>
-            <div className="row">
-              <SideMenuContainer />
-              <div className="container-fluid col-10 pl-0">
-                <NavbarView
-                  displayName={firebase.auth().currentUser.displayName}
-                  photoURL={firebase.auth().currentUser.photoURL}
-                />
-                <RoutesContainer />
-              </div>
+  /**
+   * Display the dashboard only if user is signed in, otherwise
+   * display the login page
+   */
+  return (
+    <div className="" style={{ backgroundColor: "#F8F9FC", height: "100vh" }}>
+      {isSignedIn ? (
+        <>
+          <div className="row">
+            <SideMenuContainer />
+            <div className="container-fluid col-10 pl-0">
+              <NavbarView
+                displayName={firebase.auth().currentUser.displayName}
+                photoURL={firebase.auth().currentUser.photoURL}
+              />
+              <RoutesContainer />
             </div>
-          </>
-        ) : (
-          <>
-            <LoginView uiConfig={this.uiConfig} />
-          </>
-        )}
-      </div>
-    );
-  }
-}
+          </div>
+        </>
+      ) : (
+        <>
+          <LoginView uiConfig={uiConfig} />
+        </>
+      )}
+    </div>
+  );
+};
 
 export default App;

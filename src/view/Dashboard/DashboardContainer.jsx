@@ -1,10 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import DashboardView from "./DashboardView";
 
-export class DashboardContainer extends Component {
-  render() {
-    return <DashboardView />;
-  }
-}
+const DashboardContainer = () => {
+  return <DashboardView />;
+};
 
 export default DashboardContainer;
