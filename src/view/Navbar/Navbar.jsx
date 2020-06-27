@@ -86,7 +86,7 @@ const Navbar = (props) => {
   );
 };
 
-NavbarView.defaultProps = {
+Navbar.defaultProps = {
   displayName: null,
   photoURL: null,
 };
