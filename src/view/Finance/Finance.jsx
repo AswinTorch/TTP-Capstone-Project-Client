@@ -1,7 +1,7 @@
 import React from "react";
 
-import MoneyReceivedView from "./FinanceOverview/MoneyReceivedView";
-import MoneyOwedContainer from "./FinanceOverview/MoneyOwedContainer";
+import MoneyReceived from "./FinanceOverview/MoneyReceived";
+import MoneyOwed from "./FinanceOverview/MoneyOwed";
 import FinanceDetailsContainer from "./FinanceDetails/FinanceDetailsContainer";
 
 const Finance = (props) => {
@@ -12,8 +12,8 @@ const Finance = (props) => {
       </div>
 
       <div className="row pt-3">
-        <MoneyReceivedView />
-        <MoneyOwedContainer />
+        <MoneyReceived />
+        <MoneyOwed />
       </div>
 
       <FinanceDetailsContainer />
