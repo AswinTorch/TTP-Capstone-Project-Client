@@ -4,7 +4,7 @@ import EnrolledCoursesContainer from "../Enrollment/EnrolledCourses/EnrolledCour
 import MoneyReceivedView from "../Finance/FinanceOverview/MoneyReceivedView";
 import MoneyOwedContainer from "../Finance/FinanceOverview/MoneyOwedContainer";
 
-const DashboardView = (props) => {
+const Dashboard = (props) => {
   return (
     <div className="container-fluid pt-3 pl-4 pr-4 pb-4">
       <div className="d-flex justify-content-between pb-3">
@@ -35,4 +35,4 @@ const DashboardView = (props) => {
   );
 };
 
-export default DashboardView;
+export default Dashboard;

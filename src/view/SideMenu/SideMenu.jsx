@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SideMenuView = (props) => {
+const SideMenu = (props) => {
   return (
     <div className="container-fluid col-2 bg-dark" style={{ height: "100vh" }}>
       <nav className="navbar navbar-dark bg-dark d-flex flex-column align-content-start">
@@ -52,4 +52,4 @@ const SideMenuView = (props) => {
   );
 };
 
-export default SideMenuView;
+export default SideMenu;

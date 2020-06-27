@@ -4,10 +4,10 @@ import "./App.css";
 import firebase from "../../firebase";
 import axios from "axios";
 
-import LoginView from "../Login/LoginView";
-import NavbarView from "../Navbar/NavbarView";
-import RoutesContainer from "../Routes/RoutesContainer";
-import SideMenuContainer from "../SideMenu/SideMenuContainer";
+import Login from "../Login/Login";
+import Navbar from "../Navbar/Navbar";
+import Routes from "../Routes/Routes";
+import SideMenu from "../SideMenu/SideMenu";
 
 const App = (props) => {
   const [isSignedIn, setIsSignedIn] = useState(false);
@@ -76,19 +76,19 @@ const App = (props) => {
       {isSignedIn ? (
         <>
           <div className="row">
-            <SideMenuContainer />
+            <SideMenu />
             <div className="container-fluid col-10 pl-0">
-              <NavbarView
+              <Navbar
                 displayName={firebase.auth().currentUser.displayName}
                 photoURL={firebase.auth().currentUser.photoURL}
               />
-              <RoutesContainer />
+              <Routes />
             </div>
           </div>
         </>
       ) : (
         <>
-          <LoginView uiConfig={uiConfig} />
+          <Login uiConfig={uiConfig} />
         </>
       )}
     </div>

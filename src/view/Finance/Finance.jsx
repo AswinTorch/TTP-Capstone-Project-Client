@@ -4,7 +4,7 @@ import MoneyReceivedView from "./FinanceOverview/MoneyReceivedView";
 import MoneyOwedContainer from "./FinanceOverview/MoneyOwedContainer";
 import FinanceDetailsContainer from "./FinanceDetails/FinanceDetailsContainer";
 
-const FinanceView = (props) => {
+const Finance = (props) => {
   return (
     <div className="container-fluid pt-3 pl-4 pr-4 pb-4">
       <div>
@@ -21,4 +21,4 @@ const FinanceView = (props) => {
   );
 };
 
-export default FinanceView;
+export default Finance;
