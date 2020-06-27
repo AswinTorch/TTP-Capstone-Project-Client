@@ -1,6 +1,6 @@
 import React from "react";
 import "../App/App.css";
-import EnrolledCoursesContainer from "../Enrollment/EnrolledCourses/EnrolledCoursesContainer";
+import EnrolledCourses from "../Enrollment/EnrolledCourses/EnrolledCourses";
 import MoneyReceived from "../Finance/FinanceOverview/MoneyReceived";
 import MoneyOwed from "../Finance/FinanceOverview/MoneyOwed";
 
@@ -23,7 +23,7 @@ const Dashboard = (props) => {
         <MoneyOwed />
       </div>
 
-      <EnrolledCoursesContainer />
+      <EnrolledCourses />
 
       <div className="card mt-4 shadow border-0">
         <h5 className="card-header text-info">Assignments</h5>

@@ -1,5 +1,5 @@
 import React from "react";
-import EnrolledCoursesContainer from "./EnrolledCourses/EnrolledCoursesContainer";
+import EnrolledCourses from "./EnrolledCourses/EnrolledCourses";
 
 import CourseListContainer from "./CourseList/CourseListContainer";
 
@@ -11,7 +11,7 @@ const Enrollment = (props) => {
       </div>
 
       {/* Enrolled Courses List */}
-      <EnrolledCoursesContainer />
+      <EnrolledCourses />
 
       {/* Courses List */}
       <CourseListContainer />

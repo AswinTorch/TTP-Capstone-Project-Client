@@ -13,7 +13,7 @@ import { useSelector, useDispatch } from "react-redux";
  * Fetches data and passes down props to:
  * - EnrolledCoursesView
  */
-const EnrolledCoursesContainer = (props) => {
+const EnrolledCourses = (props) => {
   const student = useSelector((state) => state.enrollment.student);
   const dispatch = useDispatch();
 
@@ -30,4 +30,4 @@ const EnrolledCoursesContainer = (props) => {
 };
 
 // Export our store-connected container by default
-export default EnrolledCoursesContainer;
+export default EnrolledCourses;
