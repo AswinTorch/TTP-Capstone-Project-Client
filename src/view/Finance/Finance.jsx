@@ -2,7 +2,7 @@ import React from "react";
 
 import MoneyReceived from "./FinanceOverview/MoneyReceived";
 import MoneyOwed from "./FinanceOverview/MoneyOwed";
-import FinanceDetailsContainer from "./FinanceDetails/FinanceDetailsContainer";
+import FinanceDetails from "./FinanceDetails/FinanceDetails";
 
 const Finance = (props) => {
   return (
@@ -16,7 +16,7 @@ const Finance = (props) => {
         <MoneyOwed />
       </div>
 
-      <FinanceDetailsContainer />
+      <FinanceDetails />
     </div>
   );
 };

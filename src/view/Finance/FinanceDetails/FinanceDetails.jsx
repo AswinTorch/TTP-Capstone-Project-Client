@@ -11,7 +11,7 @@ import FinanceDetailsView from "./FinanceDetailsView";
  * Passes props down to:
  * - FinanceDetailsView
  */
-const FinanceDetailsContainer = (props) => {
+const FinanceDetails = (props) => {
   const student = useSelector((state) => state.enrollment.student);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -23,4 +23,4 @@ const FinanceDetailsContainer = (props) => {
 };
 
 // Export our store-connected container by default
-export default FinanceDetailsContainer;
+export default FinanceDetails;
