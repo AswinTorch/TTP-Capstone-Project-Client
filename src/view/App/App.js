@@ -6,7 +6,7 @@ import axios from "axios";
 
 import Login from "../Login/Login";
 import Navbar from "../Navbar/Navbar";
-import RoutesContainer from "../Routes/RoutesContainer";
+import Routes from "../Routes/Routes";
 import SideMenu from "../SideMenu/SideMenu";
 
 const App = (props) => {
@@ -82,7 +82,7 @@ const App = (props) => {
                 displayName={firebase.auth().currentUser.displayName}
                 photoURL={firebase.auth().currentUser.photoURL}
               />
-              <RoutesContainer />
+              <Routes />
             </div>
           </div>
         </>
