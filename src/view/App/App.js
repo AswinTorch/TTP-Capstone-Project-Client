@@ -5,7 +5,7 @@ import firebase from "../../firebase";
 import axios from "axios";
 
 import Login from "../Login/Login";
-import NavbarView from "../Navbar/NavbarView";
+import Navbar from "../Navbar/Navbar";
 import RoutesContainer from "../Routes/RoutesContainer";
 import SideMenu from "../SideMenu/SideMenu";
 
@@ -78,7 +78,7 @@ const App = (props) => {
           <div className="row">
             <SideMenu />
             <div className="container-fluid col-10 pl-0">
-              <NavbarView
+              <Navbar
                 displayName={firebase.auth().currentUser.displayName}
                 photoURL={firebase.auth().currentUser.photoURL}
               />

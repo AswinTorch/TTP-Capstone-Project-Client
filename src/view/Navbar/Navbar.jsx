@@ -9,8 +9,7 @@ import UserToggleMenu from "./UserToggleMenu";
  * Receives props from App.js
  * Passes props (user info, etc) down to NotificationsToggleMenu and UserToggleMenu
  */
-
-const NavbarView = (props) => {
+const Navbar = (props) => {
   // Lines 15-65 are boilterplate necessary code to setup responsive react-bootstrap components
   const [value] = useState("");
   const NotificationsToggle = React.forwardRef(({ children, onClick }, ref) => (
@@ -92,4 +91,4 @@ NavbarView.defaultProps = {
   photoURL: null,
 };
 
-export default NavbarView;
+export default Navbar;
