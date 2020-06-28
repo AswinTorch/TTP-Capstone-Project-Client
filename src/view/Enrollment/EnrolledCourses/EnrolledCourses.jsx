@@ -8,26 +8,36 @@ import firebase from "../../../firebase";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
+function useStudent(studentID)
+{
+    const student = useSelector((state) => state.enrollment.student);
+    const dispatch = useDispatch();
+
+    useEffect(() =>
+    {
+        dispatch(fetchStudentThunk(studentID));
+    });
+
+    return student;
+}
+
 /**
  * Smart container for enrolled courses component
  *
  * Fetches data and passes down props to:
  * - EnrolledCoursesView
  */
-const EnrolledCourses = (props) => {
-  const student = useSelector((state) => state.enrollment.student);
-  const dispatch = useDispatch();
+const EnrolledCourses = (props) => 
+{
+    const student = useStudent(firebase.auth().currentUser.uid);
+    const dispatch = useDispatch();
 
-  useEffect(() => {
-    const id = firebase.auth().currentUser.uid;
-    dispatch(fetchStudentThunk(id));
-  }, [dispatch]);
+    const dropCourse = (id, course) => 
+    {
+        dispatch(dropCourseThunk(id, course));
+    };
 
-  const dropCourse = (id, course) => {
-    dispatch(dropCourseThunk(id, course));
-  };
-
-  return <EnrolledCoursesView student={student} dropCourse={dropCourse} />;
+    return <EnrolledCoursesView student={student} dropCourse={dropCourse} />;
 };
 
 /**
